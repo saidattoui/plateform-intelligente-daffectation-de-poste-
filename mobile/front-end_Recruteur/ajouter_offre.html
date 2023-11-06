@@ -1,0 +1,447 @@
+<script>
+  if (!localStorage.getItem("id")) {
+    location.replace("login.html");
+  }
+</script>
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+  <!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:35 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script>
+    <!--Activation API-->
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <title>Recruteur | index</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- All Plugin Css -->
+    <link rel="stylesheet" href="css/plugins.css" />
+
+    <!-- Style & Common Css -->
+    <link rel="stylesheet" href="css/common.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+
+  <body>
+    <!-- Navigation Start  -->
+    <nav class="navbar navbar-default navbar-sticky bootsnav">
+      <div class="container">
+        <!-- Start Header Navigation -->
+        <div class="navbar-header">
+          <button
+            type="button"
+            class="navbar-toggle"
+            data-toggle="collapse"
+            data-target="#navbar-menu"
+          >
+            <i class="fa fa-bars"></i>
+          </button>
+          <h3 class="navbar-brand" style="font-size: 180%">
+            <a style="color: #da0833" href="index.html">Your </a>
+            <a style="color: #636e7b" href="index.html"> Career</a>
+          </h3>
+        </div>
+        <!-- End Header Navigation -->
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-menu">
+          <ul
+            class="nav navbar-nav navbar-right"
+            data-in="fadeInDown"
+            data-out="fadeOutUp"
+          >
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="profil.html">Profil</a></li>
+            <li><a href="offres.html">Offres</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"
+                >Paramétres</a
+              >
+              <ul
+                class="dropdown-menu animated fadeOutUp"
+                style="display: none; opacity: 1"
+              >
+                <li class="active">
+                  <a href="change_psw.html"> Changer mot de passe </a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="nav-link" onclick="logout();">
+                <p class="text">Se déconnecter</p>
+              </a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="col-md-12">
+        <div class="row">
+          <br />
+          <form class="form-horizontal" onsubmit="return false;">
+            <div class="row heading">
+              <h1 style="color: rgb(54, 4, 100)">
+                <i class="fa fa-angle-right"></i> Ajouter Une offre
+              </h1>
+            </div>
+            <fieldset id="account">
+              <h3><legend>Détails société</legend></h3>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="hadil"
+                  >Nom Société :</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    disabled
+                    id="hadil"
+                    name=""
+                    value=""
+                    placeholder=""
+                    class="form-control"
+                    type=""
+                  />
+                  <a hidden id="id_recruteur"></a>
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="adresse"
+                  >Adresse :
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    disabled
+                    id="adresse"
+                    name=""
+                    value=""
+                    placeholder=""
+                    class="form-control"
+                    type=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="siteWeb"
+                  >Site Web :
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    disabled
+                    id="siteWeb"
+                    name=""
+                    value=""
+                    placeholder=""
+                    class="form-control"
+                    type=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="taille"
+                  >Taille :
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    disabled
+                    id="taille"
+                    name=""
+                    value=""
+                    placeholder=""
+                    class="form-control"
+                    type=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="description"
+                  >Description :
+                </label>
+                <div class="col-sm-10">
+                  <textarea
+                    disabled
+                    id="description"
+                    name=""
+                    value=""
+                    placeholder=""
+                    class="form-control"
+                    type=""
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="numTel"
+                  >Numéro du téléphone :
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    disabled
+                    id="numTel"
+                    name=""
+                    value=""
+                    placeholder=""
+                    class="form-control"
+                    type=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="secteur"
+                  >Secteur :
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    disabled
+                    id="secteur"
+                    name=""
+                    value=""
+                    placeholder=""
+                    class="form-control"
+                    type=""
+                  />
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="dateCreation"
+                  >date du Création :
+                </label>
+                <div class="col-sm-10">
+                  <input
+                    disabled
+                    id="dateCreation"
+                    name=""
+                    value=""
+                    placeholder="E-Mail"
+                    class="form-control"
+                    type=""
+                  />
+                </div>
+              </div>
+              <h3><legend>Détails Offres</legend></h3>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="typePoste"
+                  >Type de poste</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    id="typePoste"
+                    name=""
+                    value=""
+                    placeholder="Travail"
+                    class="form-control"
+                    type="text"
+                  />
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="missions"
+                  >Missions</label
+                >
+                <div class="col-sm-10">
+                  <textarea
+                    id="missions"
+                    name=""
+                    value=""
+                    placeholder="missions"
+                    class="form-control"
+                    type="text"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="exigencesTravail"
+                  >Exigences de travail</label
+                >
+                <div class="col-sm-10">
+                  <textarea
+                    id="exigencesTravail"
+                    name=""
+                    value=""
+                    placeholder="Exigences de travail"
+                    class="form-control"
+                    type="text"
+                  ></textarea>
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="competences"
+                  >Compétences</label
+                >
+                <div class="col-sm-10">
+                  <textarea
+                    id="competences"
+                    name=""
+                    value=""
+                    placeholder="competences"
+                    class="form-control"
+                    type="text"
+                  ></textarea>
+                </div>
+              </div>
+
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="tempsTravail"
+                  >Temps du tavail</label
+                >
+                <div class="col-sm-10">
+                  <select id="tempsTravail" class="form-control" name="" id="">
+                    <option value="Plein temps">Plein temps</option>
+                    <option value="Mi-temps">Mi-temps</option>
+                    <option value="Enligne">En Ligne</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group row required">
+                <label class="col-sm-2 control-label" for="salaire"
+                  >Salaire proposé</label
+                >
+                <div class="col-sm-10">
+                  <input
+                    id="salaire"
+                    name="number"
+                    value=""
+                    placeholder="salaire"
+                    class="form-control"
+                    type="number"
+                  />
+                </div>
+              </div>
+
+              <div class="form-group row required">
+                <div class="col-sm-10">
+                  <input
+                    onclick="send()"
+                    type="button"
+                    value=" Ajouter Image"
+                    class="btn btn-primary"
+                  />
+                  <input type="hidden" id="i" />
+                </div>
+              </div>
+
+              <div class="form-group row required">
+                <div class="col-sm-10">
+                  <button
+                    onclick="ajouter();"
+                    type="button"
+                    class="btn btn-info"
+                  >
+                    Ajouter Offre
+                  </button>
+                  <button type="reset" class="btn btn-danger">Annuler</button>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var c = localStorage.getItem("id");
+      // Create a request variable and assign a new XMLHttpRequest object to it.
+      var request = new XMLHttpRequest();
+      // Open a new connection, using the GET request on the URL endpoint
+      request.open("GET", "http://127.0.0.1:3000/entreprises", true);
+      request.onload = function () {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response);
+        console.log(data);
+        data.forEach((i) => {
+          console.log(i._id);
+          console.log(i.nom);
+          if (i.id_recruteur == c) {
+            document.getElementById("hadil").value = i.nom;
+            document.getElementById("adresse").value = i.adresse;
+            document.getElementById("siteWeb").value = i.siteWeb;
+            document.getElementById("taille").value = i.taille;
+            document.getElementById("description").value = i.description;
+            document.getElementById("numTel").value = i.numTel;
+            document.getElementById("secteur").value = i.secteur;
+            document.getElementById("dateCreation").value = i.dateCreation;
+            document.getElementById("id_recruteur").innerHTML = i.id_recruteur;
+
+            localStorage.setItem("id_entreprise", i._id);
+          }
+        });
+      };
+      // Send request
+      request.send();
+    </script>
+
+    <script>
+      function send() {
+        var i = document.getElementById("i");
+        const apikey = "AlJdHy50vSNiH4zNuugl1z";
+        const client = filestack.init(apikey);
+        const options = {
+          maxFiles: 20,
+          uploadInBackground: false,
+          onOpen: () => console.log("opened!"),
+          onUploadDone: (res) => (i.value = res.filesUploaded[0].url),
+        };
+        client.picker(options).open();
+      }
+
+      function ajouter() {
+        // Post an offre
+        var url = "http://127.0.0.1:3000/offres";
+        var data = {};
+        // récupération des données dans la variable data .
+        data.nomSte = document.getElementById("hadil").value;
+        data.id_recruteur = document.getElementById("id_recruteur").innerHTML;
+        data.id_entreprise = localStorage.getItem("id_entreprise");
+        data.localite = document.getElementById("adresse").value;
+        data.typePoste = document.getElementById("typePoste").value;
+        data.missions = document.getElementById("missions").value;
+        data.exigencesTravail =
+          document.getElementById("exigencesTravail").value;
+        data.competences = document.getElementById("competences").value;
+        data.tempsTravail = document.getElementById("tempsTravail").value;
+        data.salaire = document.getElementById("salaire").value;
+        data.pic = document.getElementById("i").value;
+
+        var json = JSON.stringify(data);
+        var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+        xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès auserveur pour avoir la possibilité d'envoyer les données au serveur .
+        xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+        xhr.onload = function () {
+          var offres = JSON.parse(xhr.responseText);
+          if (xhr.readyState == 4 && xhr.status == "200") {
+            console.table(offres);
+            alert(" offre ajouté ");
+            location.replace("offres.html");
+          } else {
+            alert(offres.message);
+            console.table(offres);
+          }
+        };
+        xhr.send(json);
+      }
+    </script>
+
+    <script>
+      function logout() {
+        var c = window.confirm("Voulez-vous vraiment vous déconnecter ?");
+        if (c == true) {
+          localStorage.clear();
+          location.replace("login.html");
+        }
+      }
+    </script>
+
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/owl.carousel.min.js"></script>
+    <script src="js/bootsnav.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

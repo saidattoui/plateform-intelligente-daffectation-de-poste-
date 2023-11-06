@@ -1,0 +1,249 @@
+<script>
+    if (!localStorage.getItem("id")) 
+    {
+        location.replace("login.html")
+    }
+</script>
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Recruteur | Liste des offres</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-bars"></i>
+					</button>
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="index.html">Your </a>  <a style="color:#636e7b;" href="index.html"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+							<li><a href="index.html">Accueil</a></li> 
+							<li><a href="profil.html">Profil</a></li>
+                            <li><a href="offres.html">Offres</a></li>
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Paramétres</a>
+								<ul class="dropdown-menu animated fadeOutUp" style="display: none; opacity: 1;">
+									<li class="active"><a href="change_psw.html"> Changer mot de passe </a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="nav-link" onclick="logout();">
+								  <p class="text"> Se déconnecter </p>
+								</a>
+							  </li>
+						</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>   
+		</nav>
+		<!-- Navigation End  --> 
+
+        <section class="profile-detail">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="row">
+                        <p>
+                            <a href="offres.html">
+                              <i class="fa fa-arrow-circle-left" style="font-size:30px;color:#636e7b"></i>
+                            </a>
+                        </p>
+
+                        <div class="card card-primary">
+                            <div class="card-block">
+                                <div class="basic-information">
+                                    <div class="col-md-3 col-sm-3">
+                                        <img id="pic" alt="" class="img-responsive pic">
+                                    </div>
+                                    <div class="col-md-9 col-sm-9">
+                                        <div class="profile-content">
+                                    <form class="form-material">
+                                        <div class="form-group form-default">
+                                            <label >Type de poste : </label>
+                                            <input id="typePoste" type="text" class="form-control" >
+                                            <a hidden id="id_recruteur" ></a>
+                                        </div>
+                                        <a hidden id="nomSte" ></a>
+                                        <a hidden id="localite" ></a>
+                                        <a hidden id="domaine" ></a>
+                                        <a hidden id="id_entreprise" ></a>
+                                        <a hidden id="datePub" ></a>
+
+                                        <div class="form-group form-default">
+                                            <label >Missions : </label>
+                                            <textarea id="missions" type="text" class="form-control" ></textarea>
+                                        </div>
+                                                
+                                        <div class="form-group form-default">
+                                            <label >Exigences de travail : </label>
+                                            <textarea id="exigencesTravail" type="text" class="form-control" ></textarea>
+                                        </div>
+                                        <div class="form-group form-default">
+                                            <label >Compétences :</label>
+                                            <textarea id="competences" type="text" class="form-control" ></textarea>
+                                        </div>
+                                        <div class="form-group form-default">
+                                            <label >Temps de travail :</label>
+                                            <select id="tempsTravail"class="form-control" name="" id="">
+                                                <option value="Plein temps">Plein temps</option>
+                                                <option value="Mi-temps">Mi-temps</option>
+                                                <option value="Enligne">En Ligne</option>
+                                            </select>	
+                                        </div>
+                                        <div class="form-group form-default">
+                                            <label >Salaire proposé : </label>
+                                            <input id="salaire" type="text" class="form-control" >
+                                        </div>
+                                        <br>
+                                            <button onclick="update();"type="button" class="btn btn-primary" style="background-color: #9fa4aa;">Mettre à jour</button> <br><br>
+                                            
+                                            <a  id="idp" href="delete_offer.html"+c+> <button type="button" class="btn btn-primary " >  
+                                                Supprimer 
+                                            </button></a>
+
+                                    
+
+                                            </div>
+                                        </div>
+                                    </form>
+                                    </div>
+                                    </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+        <script>
+            var url_string = window.location.href
+            var url = new URL(url_string);
+            var c = url.searchParams.get("id");
+            console.log(c);
+    
+            // Post a user
+            var url3 = "http://127.0.0.1:3000/offres/" + c ;
+            var xhr3 = new XMLHttpRequest();
+            xhr3.open("GET", url3, true);
+    
+            xhr3.onload = function () {
+                var offres = JSON.parse(xhr3.responseText);
+                if (xhr3.readyState == 4 && xhr3.status == "200") {
+
+                    document.getElementById("nomSte").innerHTML = offres.nomSte;
+                    document.getElementById("id_recruteur").innerHTML = offres.id_recruteur;
+                    document.getElementById("id_entreprise").innerHTML = offres.id_entreprise;
+                    document.getElementById("localite").value = offres.localite;
+                    document.getElementById("domaine").innerHTML = offres.domaine;
+                    document.getElementById("datePub").innerHTML = offres.datePub;
+                    document.getElementById("pic").src = offres.pic;
+                    document.getElementById("typePoste").value = offres.typePoste;
+                    document.getElementById("missions").value = offres.missions;
+                    document.getElementById("exigencesTravail").value = offres.exigencesTravail;
+                    document.getElementById("competences").value = offres.competences;
+                    document.getElementById("tempsTravail").value = offres.tempsTravail;
+                    document.getElementById("salaire").value = offres.salaire;
+                    document.getElementById("idp").href= "delete_offer.html?id="+ c;
+    
+                } else {
+    
+                    console.log("error");
+                }
+            }
+    
+            xhr3.send(null);
+    
+            function update(){
+                var url_string = window.location.href
+                var url = new URL(url_string);
+                var c = url.searchParams.get("id");
+                    
+                // Post a user
+                
+                        var url = "http://127.0.0.1:3000/offres/"+c;
+                                        
+                        var data = {};
+                        data.nomSte = document.getElementById("nomSte").innerHTML;
+                        data.id_entreprise = document.getElementById("id_entreprise").innerHTML;
+                        data.id_recruteur = document.getElementById("id_recruteur").innerHTML;
+                        data.domaine = document.getElementById("domaine").innerHTML;
+                        data.datePub = document.getElementById("datePub").innerHTML;
+                        data.pic = document.getElementById("pic").src;
+
+                        data.localite = document.getElementById("localite").value;
+                        data.typePoste   = document.getElementById("typePoste").value;
+                        data.missions   = document.getElementById("missions").value;
+                        data.exigencesTravail   = document.getElementById("exigencesTravail").value;
+                        data.competences   = document.getElementById("competences").value;
+                        data.tempsTravail   = document.getElementById("tempsTravail").value;
+                        data.salaire   = document.getElementById("salaire").value;
+
+                        data.status =1;
+    
+                       
+                        var json = JSON.stringify(data);
+                        var xhr = new XMLHttpRequest();
+                        xhr.open("PUT", url, true);
+                        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+                        xhr.onload = function () {
+                            var offres = JSON.parse(xhr.responseText);
+                            if (xhr.readyState == 4 && xhr.status == "200") {
+                                alert("Offre Modifié!");
+                                location.replace("offres.html");
+                            } else {
+                                console.error(offres);
+                                location.replace("view_offer.html");
+                            }
+                        }
+                        xhr.send(json);
+            }
+            
+            
+        </script>
+
+        <script>
+			function logout()
+			 {
+				 var c = window.confirm("Voulez-vous vraiment vous déconnecter ?")
+				 if(c== true)
+				 {
+					 localStorage.clear();
+					 location.replace("login.html");
+				 }
+		
+			}
+		</script>
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+
+    </body>
+</html>
+    

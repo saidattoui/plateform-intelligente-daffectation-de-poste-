@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script type="text/javascript">
+(function() {
+emailjs.init("user_KGg0s4yfBbp983KHOLs4n");
+})();
+
+
+var templateParams = {
+    name: 'HABIBI',
+    notes: 'Check this out!',
+    send_to: 'hadilmaatoug1@gmail.com'
+};
+ 
+emailjs.send('service_wu22kv4', 'template_rfizcqt', templateParams)
+    .then(function(response) {
+       console.log('SUCCESS!', response.status, response.text);
+    }, function(error) {
+       console.log('FAILED...', error);
+    });
+
+</script>
+    
+</body>
+</html>

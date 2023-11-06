@@ -1,0 +1,34 @@
+<html lang="en">
+<head>
+</head>
+<body>
+    <script>
+    var d = window.confirm("Vous voulez confirmer la suppression ?");
+    if (d == true)
+    {
+        var url_string = window.location.href
+        var url = new URL(url_string);
+        var c = url.searchParams.get("id");
+        console.log(c);
+        // Post a user
+        var url3 = "http://127.0.0.1:3000/centres_interets/" + c ;
+        var xhr3 = new XMLHttpRequest();
+        xhr3.open("DELETE", url3, true);
+        xhr3.onload = function () {
+            if (xhr3.readyState == 4 && xhr3.status == "200") {
+                location.replace("profil.html");
+                event.preventDefault();
+            } else {
+                console.log("error");
+            }
+        }
+        xhr3.send(null);
+    }
+    else
+    {
+        location.replace("profil.html");
+    }
+    </script>
+    
+</body>
+</html>

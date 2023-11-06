@@ -1,0 +1,142 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Recruteur | Login</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+		<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="#">Your </a>  <a style="color:#636e7b;" href="#"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+			</div>   
+		</nav>
+		<!-- Navigation End  -->
+		 
+		<!-- login section start -->
+		<section class="login-wrapper">
+			<div class="container">
+				<div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+					<form>
+						<h3 class="login-box-msg">Connexion </h3> <br>
+						<input id ="email" type="text" name="email" class="form-control input-lg" placeholder="Adresse E-mail">
+						<input id="password" type="password" class="form-control input-lg" placeholder="Mot de passe"> <br>
+						<button onclick="login();" type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Se connecter</button>
+
+						<p>Vous n'avez pas encore un compte ? 
+							<a href="signup.html">Créer un compte</a>
+						</p> <br>
+						
+					</form>
+				</div>
+				<p>
+					<a href="../index.html">
+						<i class="fa fa-arrow-circle-left" style="font-size:18px;color:#636e7b"></i>
+						BACK
+					</a>
+				</p>
+			</div>
+		</section>
+		<!-- login section End -->	
+		
+
+		
+<script>
+	
+	Swal.fire({
+									position: 'center',
+									icon: 'success',
+									title: 'Welcome ',
+									showConfirmButton: false,
+									timer: 1500
+								})
+</script>
+
+		<script>
+			function login(){
+				var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+				if(document.getElementById("email").value.match(mailformat))
+				{
+					var url = "http://127.0.0.1:3000/recruteurs"; //definir la collection a manupiler
+					var email = document.getElementById("email").value; 
+					var password = document.getElementById("password").value;// récupération de la password saisir dans notre code html
+					var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+					xhr.open("GET", url, true); // choisir la méthode get comme une méthode d'accès au serveur et récupérer les données .
+					xhr.setRequestHeader('Content-type','application/json; charset=utf-8'); // choisir l'encodage utf-8 pour que la resultat retourne peux avoir différents format de text comme les côté , les accent …..
+					xhr.onload = function () { // load les données à partir de la serveur -> début connection
+					var recruteurs = JSON.parse(xhr.responseText); // conversion des données en format json
+					if (xhr.readyState == 4 && xhr.status == "200") { // if la status retourné par la serveur est 200 donc ont dans le cas succes
+						access = false; // définir une variable access par défaut avec la valeur false
+						/* bouclé la liste des utilisateurs */
+						for(i=0; i<recruteurs.length; i++){
+							if (recruteurs[i].email == email && recruteurs[i].password == password){ // if les données recuperer et la valeur auctual dans la base sont égaux alors en changer access a true .
+								access = true ;
+								localStorage.setItem("nom", recruteurs[i].nom);
+								localStorage.setItem("id", recruteurs[i]._id);
+								localStorage.setItem("password", recruteurs[i].password);
+								var stat = recruteurs[i].status;
+							}
+						}                 
+		 
+						// si la variable accès contient true on est autorisé à accéder.
+						if (access){
+							if(stat == 1)
+							{
+								location.replace("index.html");
+							}
+							else
+							{
+								alert("Compte n'est pas encore confirmé ! Merci de patientez!")
+							}
+						}
+						else{
+							alert("Adresse ou mot de passe incorrect");
+						}
+						} else {
+							alert("erreur de connexion");
+						}
+					}
+					xhr.send();
+				}
+				else
+				{
+				  alert("Adresse email incorrecte!");
+				}
+			  }
+		</script>
+
+
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+    </body>
+
+<!-- Mirrored from technext.github.io/jober-desk/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+</html>

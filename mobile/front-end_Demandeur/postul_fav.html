@@ -1,0 +1,760 @@
+<script>
+    if (!localStorage.getItem("id")) 
+    {
+        location.replace("login.html")
+    }
+</script>
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script><!--Activation API-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>User | postuler</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-bars"></i>
+					</button>
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="index.html">Your </a>  <a style="color:#636e7b;" href="index.html"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li><a href="index.html"><span class="iconify" data-icon="ant-design:home-filled" data-inline="false"></span>   Accueil</a></li> 
+                        <li><a href="profil.html"><span class="iconify" data-icon="simple-line-icons:user" data-inline="false"></span>   Profil</a></li>
+                        <li><a href="offres_emploi.html"><span class="iconify" data-icon="fa:th-large" data-inline="false"></span>   Offres d'emploi</a></li>
+                        <li><a href="favoris.html"><span class="iconify" data-icon="clarity:favorite-solid" data-inline="false"></span>   Favoris Offres</a></li>
+                        <li><a href="offre.html"><span class="iconify" data-icon="fa:copy" data-inline="false"></span>   Offres Postulés</a></li>
+                        <li><a href="offreia.html"><span class="iconify" data-icon="fa:copy" data-inline="false"></span>   Offres Recommandés</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="iconify" data-icon="feather:settings" data-inline="false"></span>   Paramétres</a>
+                            <ul class="dropdown-menu animated fadeOutUp" style="display: none; opacity: 1;">
+                                <li class="active"><a href="change_psw.html"> Changer mot de passe </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" onclick="logout();">
+                              <p class="text"><span class="iconify" data-icon="websymbol:logout" data-inline="false"></span>   Se déconnecter </p>
+                            </a>
+                          </li>
+                    </ul>
+				</div><!-- /.navbar-collapse -->
+			</div>   
+		</nav>
+		<!-- Navigation End  --> 
+
+		<section class="profile-detail">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="row">
+                        <div class="card card-primary">
+                            <div class="card-block">
+                                <div class="basic-information">
+                                    
+                                    <div class="panel-heading">
+                                        <h4 style="text-align: center; color: #273f5e;"> Formulaire candidature</h4>                                        
+                                    </div>
+                                            <div class="col-md-3 col-sm-3">
+                                                <img id="photo" alt="" class="img-responsive pic">
+                                            </div> <br>
+                                    
+                                    <div class="col-md-9 col-sm-9">
+                                        <div class="profile-content">
+
+                                    <form class="form-material">
+                                        <div class="form-group form-default">
+                                            <label >Nom : </label>
+                                            <a id="nom" ></a>
+                                        </div>
+                                                <div class="form-group form-default">
+                                                    <label >Prénom : </label>
+                                                    <a  id="prenom" ></a>
+                                                </div>
+                                                
+                                                <div class="form-group form-default">
+                                                    <label >Adresse E-mail : </label>
+                                                    <a id="email" ></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Numéro de téléphone : </label>
+                                                    <a id="numTel" ></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Région :</label>
+                                                    <a id="ville"></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label> Date de naissance </label>
+                                                    <a id="dateNaissance" ></a>
+                                                </div>
+											
+                                                <div class="form-group form-default">
+                                                    <label >Niveau d'éducation : </label>
+                                                    <a id="niveauEducation"></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Niveau d'expérience : </label>
+                                                    <a id="niveauEexperience"></a>                                      
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Type de demandeur: </label>
+                                                    <a id="typeClient"></a>                                     
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label > Poste Désiré : </label>
+                                                    <a id="travailSouhaite"></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label > Lieu Désiré : </label>
+                                                    <a id="lieutravailSouhaite"></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    </div>
+							<br>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-user fa-fw"></i> Informations Personnelles                                    
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material">
+                                                <div class="form-group form-default">
+                                                    <label >Genre : </label>
+                                                    <a id="sexe"></a>
+                                                    <a hidden id="id_user" ></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Etat Civil :</label>
+                                                    <a id="etatCivil"></a>                                      
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Adresse : </label>
+                                                    <a id="adresse"></a>
+                                                </div>
+                                                
+                                                <div class="form-group form-default">
+                                                    <label >Code postale : </label>
+                                                    <a id="codePostal"></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Type Permis</label>
+                                                    <a id="typePermis"></a>                                       
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <span class="iconify" data-icon="ps:work-case" data-inline="false"></span> Informations Professionnelles
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material">
+                                                <div class="form-group form-default">
+                                                    <label>Nom Entreprise : </label>
+                                                    <a id="nomm"></a>
+                                                    <a hidden id="id_user" ></a>
+
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label>Titre de poste : </label>
+                                                    <a id="titreProfessionnel" ></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Missions : </label>
+                                                    <a id="mission"></a>
+                                                </div>
+                                                
+                                            
+                                                <h5 class="text-left" style="color: rgb(65, 65, 75);"><i><u>Emploi Souhaité</i></u></h5>
+                                                <div class="form-group form-default">
+                                                    <label > Situation Professionnelle : </label>
+                                                    <a id="situationPro"></a>                                      
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Type de poste : </label>
+                                                    <a id="typePoste1"></a>                                 
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label> Occupation : </label>
+                                                    <a id="occupation"></a>                        
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-graduation-cap fa-fw"></i> Diplôme et formation:
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material">
+                                                <div class="form-group form-default">
+                                                    <label > Niveau d'étude actuel :</label>
+                                                    <a id="etd"></a>
+                                                    <a hidden id="id_user" ></a>
+                                   
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Diplôme ou spécialité :</label>
+                                                    <a id="diplomeObtenu"></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Etablissement :</label>
+                                                    <a id="etablissement"></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Date début :</label>
+                                                    <a id="dateDeb"></a>
+                                                    <label >Date Fin :</label>
+                                                    <a id="dateFin"></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Statut diplôme :</label>
+                                                    <a id="statut"></a>                              
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Mention :</label>
+                                                    <a id="mention"></a>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-cog fa-fw"></i> Compétences
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material">
+                                                <div class="form-group form-default">
+                                                    <label >Description :</label>
+                                                    <a id="titre"></a>
+                                                </div>
+                                            </form>
+                                        <div class="profile-content" id="listcomp">	
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-leaf fa-fw"></i>  Projets
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material">
+                                                <div class="form-group form-default">
+                                                    <label >Description :</label>
+                                                    <a id="description1"></a>
+                                                    <a hidden id="id_user"></a>
+                                                </div>
+                                            </form>                            
+                                        
+                                        <div class="profile-content" id="listprojet">	
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-cog fa-fw"></i> Langues
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material">
+                                                <div class="form-group form-default">
+                                                    <label >Nom  :</label>
+                                                    <a id="nom1"></a>
+                                                    <a hidden id="id_user"></a>
+                                                </div>
+                                            </form>                             
+                                        
+                                        <div class="profile-content" id="listlang">	
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">    
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-coffee fa-fw"></i> Centres d'intérets
+                                        </div>
+                                        <div class="panel-body">
+                                        <div class="profile-content" id="listci">	
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                
+                                
+                                    </div>
+                                </div>
+                                <button onclick="add();" type="button" class="btn view-job" style="background-color: #4c5551;">Valider</button> 
+
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+        <a hidden id="id_offre"></a>
+        <a hidden id="status"></a>
+        <a hidden id="localite"></a>
+        <a hidden id="domaine"></a>
+        <a hidden id="typePoste"></a>
+        <a hidden id="nomSte"></a>
+        <a hidden id="exigencesTravail"></a>
+        <a hidden id="missions"></a>
+        <a hidden id="competences"></a>
+        <a hidden id="tempsTravail"></a>
+        <a hidden id="datePub"></a>
+        <a hidden id="pic"></a>
+        <a hidden id="salaire"></a>
+        <a hidden id="id_recruteur"></a>
+        <a hidden id="id_entreprise"></a>
+
+        <script>
+            var url_string = window.location.href
+            var url = new URL(url_string);
+            var c = url.searchParams.get("id");
+            console.log(c);
+    
+            // Post a user
+            var url9 = "http://127.0.0.1:3000/favoris/" + c ;
+            var xhr9 = new XMLHttpRequest();
+            xhr9.open("GET", url9, true);
+    
+            xhr9.onload = function () {
+                var favoris = JSON.parse(xhr9.responseText);
+                if (xhr9.readyState == 4 && xhr9.status == "200") {
+
+                    document.getElementById("nomSte").innerHTML = favoris.nomSte;
+                    document.getElementById("id_recruteur").innerHTML = favoris.id_recruteur;
+                    document.getElementById("localite").innerHTML = favoris.localite;
+                    document.getElementById("domaine").innerHTML = favoris.domaine;
+                    document.getElementById("datePub").innerHTML = favoris.datePub;
+                    document.getElementById("pic").src = favoris.pic;
+                    document.getElementById("typePoste").innerHTML = favoris.typePoste;
+                    document.getElementById("missions").innerHTML = favoris.missions;
+                    document.getElementById("exigencesTravail").innerHTML = favoris.exigencesTravail;
+                    document.getElementById("competences").innerHTML = favoris.competences;
+                    document.getElementById("tempsTravail").innerHTML = favoris.tempsTravail;
+                    document.getElementById("salaire").innerHTML = favoris.salaire;
+                    document.getElementById("id_entreprise").innerHTML = favoris.id_entreprise;
+                    document.getElementById("id_user").innerHTML = favoris.id_user;
+                    document.getElementById("id_offre").innerHTML = favoris.id_offre;
+    
+                } else {
+    
+                    console.log("error");
+                }
+            }
+    
+            xhr9.send(null);
+            
+        </script>
+
+        <script> 
+            var c = localStorage.getItem("id");
+			console.log(c); 
+    
+            var url3 = "http://127.0.0.1:3000/users/" + c ; 
+            var xhr3 = new XMLHttpRequest(); 
+            xhr3.open("GET", url3, true); 
+            xhr3.onload = function () { 
+            var users = JSON.parse(xhr3.responseText); 
+            if (xhr3.readyState == 4 && xhr3.status == "200") { 
+           document.getElementById("nom").innerHTML = users.nom;
+           document.getElementById("prenom").innerHTML =users.prenom;
+           document.getElementById("email").innerHTML =users.email;
+           document.getElementById("ville").innerHTML = users.ville;
+           document.getElementById("dateNaissance").innerHTML =users.dateNaissance;
+           document.getElementById("niveauEducation").innerHTML =users.niveauEducation;
+           document.getElementById("niveauEexperience").innerHTML =users.niveauEexperience;
+           document.getElementById("numTel").innerHTML =users.numTel;
+           document.getElementById("travailSouhaite").innerHTML =users.travailSouhaite;
+           document.getElementById("typeClient").innerHTML =users.typeClient;
+           document.getElementById("lieutravailSouhaite").innerHTML =users.lieutravailSouhaite;
+
+          
+        } else { 
+                console.log("error"); 
+            } 
+                } 
+                xhr3.send(null); 
+            
+        </script>
+
+        <script>
+            var c = localStorage.getItem("id");
+            // Create a request variable and assign a new XMLHttpRequest object to it.
+            var request = new XMLHttpRequest()
+            // Open a new connection, using the GET request on the URL endpoint
+            request.open('GET', 'http://127.0.0.1:3000/info_pers', true)
+            request.onload = function()
+            {
+                // Begin accessing JSON data here
+                var data = JSON.parse(this.response)
+                console.log(data);
+                var j = 1;
+                data.forEach(i => {
+                    console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == c)
+                    {
+                        document.getElementById("photo").src = i.photo;
+                        document.getElementById("sexe").innerHTML = i.sexe;
+                        document.getElementById("etatCivil").innerHTML = i.etatCivil;
+                        document.getElementById("adresse").innerHTML = i.adresse;
+                        document.getElementById("codePostal").innerHTML = i.codePostal;
+                        document.getElementById("typePermis").innerHTML = i.typePermis;
+                        document.getElementById("id_user").innerHTML = i.id_user;
+
+                        localStorage.setItem("id_info_per", i._id);
+
+                    }
+                })
+            }
+            // Send request
+            request.send()
+        </script>
+
+        <script>
+            var c = localStorage.getItem("id");
+            var request = new XMLHttpRequest()
+            // Open a new connection, using the GET request on the URL endpoint
+            request.open('GET', 'http://127.0.0.1:3000/info_pros', true)
+            request.onload = function()
+            {
+                // Begin accessing JSON data here
+                var data = JSON.parse(this.response)
+                console.log(data);
+                var j = 1;
+                data.forEach(i => {
+                    console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == c)
+                    {
+                        document.getElementById("nomm").innerHTML = i.nomEnt;
+                        document.getElementById("titreProfessionnel").innerHTML = i.titreProfessionnel;
+                        document.getElementById("typePoste1").innerHTML = i.typePoste;
+                        document.getElementById("occupation").innerHTML = i.occupation;
+                        document.getElementById("mission").innerHTML = i.mission;
+                        document.getElementById("situationPro").innerHTML = i.situationPro;
+                        document.getElementById("id_user").innerHTML = i.id_user;
+
+                        
+                        localStorage.setItem("id_info_pro", i._id);
+
+                    }
+                })
+            }
+            // Send request
+            request.send()
+        </script>
+
+
+<script>
+    var c = localStorage.getItem("id");
+    var request = new XMLHttpRequest()
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://127.0.0.1:3000/diplomes', true)
+    request.onload = function()
+    {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        console.log(data);
+        var j = 1;
+        data.forEach(i => {
+            console.log(i._id);
+            console.log(i.id_user);
+            if(i.id_user == c)
+            {
+                document.getElementById("etd").innerHTML = i.nEtude;
+                document.getElementById("diplomeObtenu").innerHTML = i.diplomeObtenu;
+                document.getElementById("etablissement").innerHTML = i.etablissement;
+                document.getElementById("dateDeb").innerHTML = i.dateDeb;
+                document.getElementById("dateFin").innerHTML = i.dateFin;
+                document.getElementById("mention").innerHTML = i.mention;
+                document.getElementById("statut").innerHTML = i.statut;
+                document.getElementById("id_user").innerHTML = i.id_user;
+
+
+                localStorage.setItem("id_diplome", i._id);
+            }
+        })
+    }
+    // Send request
+    request.send()
+</script>
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/competences', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listcomp");
+        data.forEach(i => {
+            {
+                console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == localStorage.getItem("id")){
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <div class="information">
+                                `+i.titre+`
+                        
+									
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/projets', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listprojet");
+        data.forEach(i => {
+            {
+                console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == localStorage.getItem("id")){
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <div class="information">
+                                `+i.description1+`
+                        
+									
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/langues', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listlang");
+        data.forEach(i => {
+            {
+                console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == localStorage.getItem("id")){
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <div class="information">
+                            `+i.nom1+`
+                        
+									
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/centres_interets', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listci");
+        data.forEach(i => {
+            {
+                console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == localStorage.getItem("id")){
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <div class="information">
+                                `+i.descri+` <br>
+                                 `+i.pointsForts+`
+                       
+                        
+									
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+  
+  
+
+  <script>
+ 
+    function add(){
+      var url_string = window.location.href
+          var url = new URL(url_string);
+          var c = url.searchParams.get("id");
+          console.log(c);
+        // Post an offre
+        var url = "http://127.0.0.1:3000/postules";
+        var data = {};
+        // récupération des données dans la variable data .
+        data.niveauEducation = document.getElementById("niveauEducation").innerHTML;
+        data.niveauEexperience = document.getElementById("niveauEexperience").innerHTML;
+        data.nom = document.getElementById("nom").innerHTML;
+        data.prenom = document.getElementById("prenom").innerHTML;
+        data.typeClient = document.getElementById("typeClient").innerHTML;
+        data.email= document.getElementById("email").innerHTML;
+        data.nomSte = document.getElementById("nomSte").innerHTML;
+        data.localite = document.getElementById("localite").innerHTML;
+        data.domaine = document.getElementById("domaine").innerHTML; 
+        data.typePoste = document.getElementById("typePoste").innerHTML; 
+        data.exigencesTravail = document.getElementById("exigencesTravail").innerHTML; 
+        data.missions = document.getElementById("missions").innerHTML; 
+        data.competences = document.getElementById("competences").innerHTML; 
+        data.tempsTravail = document.getElementById("tempsTravail").innerHTML; 
+        data.datePub = document.getElementById("datePub").innerHTML; 
+        data.status = document.getElementById("status").innerHTML; 
+        data.pic = document.getElementById("pic").innerHTML; 
+        data.salaire = document.getElementById("salaire").innerHTML;
+        data.id_user = localStorage.getItem("id");
+        data.id_offre = c; 
+
+         var json = JSON.stringify(data);
+        var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+        xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès auserveur pour avoir la possibilité d'envoyer les données au serveur .
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+        xhr.onload = function () {
+        var postules = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.table(postules);
+            alert("Offre postulé ");
+            location.replace("offre.html");
+        } else {
+            alert(postules.message);
+            console.table(postules);
+        }
+    }
+    xhr.send(json);
+}
+
+</script>
+
+
+    
+		<script>
+			function logout()
+			 {
+				 var c = window.confirm("Voulez-vous vraiment vous déconnecter ?")
+				 if(c== true)
+				 {
+					 localStorage.clear();
+					 location.replace("login.html");
+				 }
+		
+			}
+		</script>
+
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    </body>
+
+<!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:43 GMT -->
+</html>

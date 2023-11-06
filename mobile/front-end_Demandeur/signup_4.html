@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script><!--Activation API-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>User | SignUp</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="#">Your </a>  <a style="color:#636e7b;" href="#"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+			</div>   
+		</nav>
+		<!-- Navigation End  -->
+		
+		<!-- login section start -->
+		<section class="login-wrapper">
+			<div class="container">
+				<div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+                    <p style="text-align: center;"> Etape4/4</p>
+					<form onsubmit="return false">
+                        <div class="col-md-12">
+                            <h3 class="text-center" style="color: rgb(65, 65, 75);">Diplôme et Formation</h3> 
+                        </div> <br><br>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Niveau d'étude actuel</h5>
+                            <select id="etd" class="form-control" name="">
+                                <option value="Lycée">Lycée/Bac</option>
+                                <option value="Etudiant">Etudiant</option>
+                                <option value="BTS">BTS/BTP</option>
+                                <option value="Ingénieur">Ingénieur</option>
+                                <option value="Doctorat">Doctorat</option>
+                                <option value="Maitrise">Maitrise</option>
+
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;">Diplôme ou spécialité  </h5>
+                            <input type="text" id="diplomeObtenu" name="text-input" placeholder="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Etablissement </h5>
+                            <input type="text" id="etablissement" name="text-input" placeholder="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Date début </h5>
+                            <input type="date" id="dateDeb" name="date" class="form-control">
+                            <h5 style="text-align: left;"> Date Fin </h5>
+                            <input type="date" id="dateFin" name="date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Statut diplôme</h5>
+                            <select id="statut" class="form-control" name="">
+                                <option value="Obtenu">Obtenu</option>
+                                <option value=" validé" >Non validé</option>
+                                <option value="cours">En cours</option>
+                            </select>
+                        </div>
+                    
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Mention </h5>
+                            <input type="text" id="mention" name="text-input" placeholder="" class="form-control">
+                        </div> 
+						 <br>
+
+                         <div class="form-group">
+                             <input type="hidden" id="i">
+                         </div>
+                         <button onclick="register();" type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"> Terminer et S'inscrire</button>
+                         
+
+					</form>
+				</div>
+			</div>
+		</section>
+		<!-- login section End -->	
+		
+	
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+        <script>
+            function send() {
+                var i = document.getElementById("i");
+                const apikey = 'AZgUKKmLSScKHWwDZ725dz';
+                const client = filestack.init(apikey);
+                const options = {
+                    maxFiles: 20,
+                    uploadInBackground: false,
+                    onOpen: () => console.log('opened!'),
+                    onUploadDone: (res) => i.value = res.filesUploaded[0].url,
+                };
+                client.picker(options).open();
+            }
+            function register(){
+                if(document.getElementById("etd").value && document.getElementById("diplomeObtenu").value && document.getElementById("etablissement").value && document.getElementById("statut").value)
+                {
+                    // Post a user
+                    var url = "http://127.0.0.1:3000/diplomes";
+                    var data = {};
+                    // récupération des données dans la variable data .
+                    data.cv = document.getElementById("i").value;
+                    data.id_user = localStorage.getItem("id");
+                    data.nEtude = document.getElementById("etd").value;
+                    data.diplomeObtenu = document.getElementById("diplomeObtenu").value;
+                    data.etablissement = document.getElementById("etablissement").value;
+                    data.dateDeb = document.getElementById("dateDeb").value;
+                    data.dateFin = document.getElementById("dateFin").value;
+                    data.statut = document.getElementById("statut").value;
+                    data.mention = document.getElementById("mention").value;
+                    
+                    var json = JSON.stringify(data);
+                    var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+                    xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès au serveur pour avoir la possibilité d'envoyer les données au serveur .
+                    xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+                    xhr.onload = function () {
+                        var diplomes = JSON.parse(xhr.responseText);
+                        if (xhr.readyState == 4 && xhr.status == "200") {
+                            console.table(diplomes);
+                            alert("Informations Enregistrées");
+                            location.replace("index.html");
+                        } else {
+                            alert(diplomes.message);
+                            console.table(diplomes);
+                        }
+                    }
+                    xhr.send(json);
+                }
+                else
+            {
+                alert("Veuillez remplir tous les champs!");
+            }
+            }
+        </script>
+    </body>
+</html>

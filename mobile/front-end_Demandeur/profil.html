@@ -1,0 +1,1138 @@
+<script>
+    if (!localStorage.getItem("id")) 
+    {
+        location.replace("login.html")
+    }
+</script>
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script><!--Activation API-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>User | Profil</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-bars"></i>
+					</button>
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="index.html">Your </a>  <a style="color:#636e7b;" href="index.html"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+                        <li><a href="index.html"><span class="iconify" data-icon="ant-design:home-filled" data-inline="false"></span>   Accueil</a></li> 
+                        <li><a href="profil.html"><span class="iconify" data-icon="simple-line-icons:user" data-inline="false"></span>   Profil</a></li>
+                        <li><a href="offres_emploi.html"><span class="iconify" data-icon="fa:th-large" data-inline="false"></span>   Offres d'emploi</a></li>
+                        <li><a href="favoris.html"><span class="iconify" data-icon="clarity:favorite-solid" data-inline="false"></span>   Favoris Offres</a></li>
+                        <li><a href="offre.html"><span class="iconify" data-icon="fa:copy" data-inline="false"></span>   Offres Postulés</a></li>
+                        <li><a href="offreia.html"><span class="iconify" data-icon="fa:copy" data-inline="false"></span>   Offres Recommandés</a></li>
+
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="iconify" data-icon="feather:settings" data-inline="false"></span>   Paramétres</a>
+                            <ul class="dropdown-menu animated fadeOutUp" style="display: none; opacity: 1;">
+                                <li class="active"><a href="change_psw.html"> Changer mot de passe </a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#" class="nav-link" onclick="logout();">
+                              <p class="text"><span class="iconify" data-icon="websymbol:logout" data-inline="false"></span>   Se déconnecter </p>
+                            </a>
+                          </li>
+                    </ul>
+				</div><!-- /.navbar-collapse -->
+			</div>   
+		</nav>
+		<!-- Navigation End  --> 
+	
+
+		<section class="profile-detail">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="row">
+                        <div class="card card-primary">
+                            <div class="card-block">
+                                <div class="basic-information">
+                                    
+                                            <div class="col-md-3 col-sm-3">
+                                                <img id="photo" alt="" class="img-responsive pic">
+                                             <br>
+                                            
+                                        </div><br>
+                                    
+                                    <div class="col-md-9 col-sm-9">
+                                        <div class="profile-content">
+
+                                    <form class="form-material">
+                                        <div class="form-group form-default">
+                                            <label >Nom : </label>
+                                            <input id="nom" type="text" class="form-control" >
+                                            <a hidden id="password" ></a>
+                                        </div>
+                                                <div class="form-group form-default">
+                                                    <label >Prénom : </label>
+                                                    <input id="prenom" type="text" class="form-control" >
+                                                </div>
+                                                
+                                                <div class="form-group form-default">
+                                                    <label >Adresse E-mail : </label>
+                                                    <input id="email" type="text" class="form-control" >
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Numéro de téléphone : </label>
+                                                    <input id="numTel" type="number" class="form-control" >
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Région :</label>
+                                                    <select id="ville" class="form-control" name="">
+                                                        <option value="Ariana">Ariana</option>
+                                                        <option value="Ben Arous" >Ben Arous</option>
+                                                        <option value="Béja">Béja</option>
+                                                        <option value="Bizerte">Bizerte</option>
+                                                        <option value="Gabès">Gabès</option>
+                                                        <option value="Gafsa">Gafsa</option>
+                                                        <option value="Gbelli">Gbelli</option>
+                                                        <option value="Jendouba">Jendouba</option>
+                                                        <option value="kairouan">kairouan</option>
+                                                        <option value="Kasserine">Kasserine</option>
+                                                        <option value="Kebili">Kebili</option>
+                                                        <option value="Le Kef">Le Kef</option>
+                                                        <option value="Mahdia">Mahdia</option>
+                                                        <option value="Manouba">Manouba</option>
+                                                        <option value="Médenine">Médenine</option>
+                                                        <option value="Monastir">Monastir</option>
+                                                        <option value="Nabeul">Nabeul</option>
+                                                        <option value="Sfax">Sfax</option>
+                                                        <option value="Sidi Bouzid">Sidi Bouzid</option>
+                                                        <option value="Siliana">Siliana</option>
+                                                        <option value="Sousse">Sousse</option>
+                                                        <option value="Tataouine">Tataouine</option>
+                                                        <option value="Tozeur">Tozeur</option>
+                                                        <option value="Tunis">Tunis</option>
+                                                        <option value="Zaghouan">Zaghouan</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label> Date de naissance </label>
+                                                    <input type="date" id="dateNaissance" name="dateNaissance" placeholder="" class="form-control">
+                                                </div>
+											
+                                                <div class="form-group form-default">
+                                                    <label >Niveau d'éducation : </label>
+                                                    <select id="niveauEducation" class="form-control" name="">
+                                                        <option value="Primaire">Primaire</option>
+                                                        <option value="Secondaire">Secondaire</option>
+                                                        <option value="Formations">Formations Professionnelles</option>
+                                                        <option value="Bac">Bac</option>
+                                                        <option value="Bac+1">Bac +1</option>
+                                                        <option value="Bac+2">Bac +2</option>
+                                                        <option value="Bac+3">Bac +3</option>
+                                                        <option value="Bac+4">Bac +4</option>
+                                                        <option value="Bac+5">Bac +5</option>
+                                                        <option value="Bac+6">Bac +6</option>
+                                                        <option value="Doctorat">Doctorat</option>
+                                                        <option value="Recherche">Recherche</option>
+                                                    </select>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Niveau d'expérience : </label>
+                                                    <select id="niveauEexperience" class="form-control" name="">
+                                                        <option value="Aucune">Aucune Expérience</option>
+                                                        <option value="1">Moins du'un an </option>
+                                                        <option value="n2">Entre 1 et 2 ans</option>
+                                                        <option value="n3">Entre 2 et 5 ans</option>
+                                                        <option value="n5">Plus de 5 ans</option>
+                                                    </select>                                            
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Type de demandeur: </label>
+                                                    <select id="typeClient" class="form-control" name="">
+                                                        <option value="Stagiaire">Stagiaire</option>
+                                                        <option value="Employé">Employé</option>
+                                                        <option value="Saisonnier">Saisonnier </option>
+                                                    </select>                                             
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label > Poste Désiré : </label>
+                                                    <input id="travailSouhaite" type="text" class="form-control" >
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label > Lieu Désiré : </label>
+                                                    <select id="lieutravailSouhaite" class="form-control" name="">
+                                                        <option value="Ariana">Ariana</option>
+                                                        <option value="Ben Arous">Ben Arous</option>
+                                                        <option value="Béja">Béja</option>
+                                                        <option value="Bizerte">Bizerte</option>
+                                                        <option value="Gabès">Gabès</option>
+                                                        <option value="Gafsa">Gafsa</option>
+                                                        <option value="Gbelli">Gbelli</option>
+                                                        <option value="Jendouba">Jendouba</option>
+                                                        <option value="kairouan">kairouan</option>
+                                                        <option value="Kasserine">Kasserine</option>
+                                                        <option value="Kebili">Kebili</option>
+                                                        <option value="Le Kef">Le Kef</option>
+                                                        <option value="Mahdia">Mahdia</option>
+                                                        <option value="Manouba">Manouba</option>
+                                                        <option value="Médenine">Médenine</option>
+                                                        <option value="Monastir">Monastir</option>
+                                                        <option value="Nabeul">Nabeul</option>
+                                                        <option value="Sfax">Sfax</option>
+                                                        <option value="Sidi Bouzid">Sidi Bouzid</option>
+                                                        <option value="Siliana">Siliana</option>
+                                                        <option value="Sousse">Sousse</option>
+                                                        <option value="Tataouine">Tataouine</option>
+                                                        <option value="Tozeur">Tozeur</option>
+                                                        <option value="Tunis">Tunis</option>
+                                                        <option value="Zaghouan">Zaghouan</option>
+                                                    </select>                                            
+                                                </div>
+                                                    <br>
+                                                <div class="text-right">
+                                                    <button type="button" onclick="update();" class="btn btn-primary"> <i class="fa fa-edit"></i>   Modifier
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                    </div>
+							<br>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-user fa-fw"></i> Informations Personnelles                                    
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material" onsubmit="return false">
+                                                <div class="form-group form-default">
+                                                    <label >Genre : </label>
+                                                    <input id="sexe" type="text" class="form-control" >
+                                                    <a id="id_user" ></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Etat Civil :</label>
+                                                    <select id="etatCivil" class="form-control" name="">
+                                                        <option value="Célibataire">Célibataire</option>
+                                                        <option value="Marié" >Marié(e)</option>
+                                                    </select>                                        
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Adresse : </label>
+                                                    <input type="text" id="adresse" name="text-input" placeholder="" class="form-control">
+                                                </div>
+                                                
+                                                <div class="form-group form-default">
+                                                    <label >Code postale : </label>
+                                                    <input type="number" id="codePostal" name="number" placeholder="" class="form-control">
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Type Permis</label>
+                                                    <select id="typePermis" class="form-control" name="">
+                                                        <option value="permis">J'ai pas un permis</option>
+                                                        <option value=" A1" >Permis A1</option>
+                                                        <option value="A">Permis A</option>
+                                                        <option value="B">Permis B</option>
+                                                        <option value="E">Permis B+E</option>
+                                                        <option value="C">Permis C</option>
+                                                        <option value="CE">Permis C+E</option>
+                                                        <option value="D">Permis D</option>
+                                                        <option value="D1">Permis D1</option>
+                                                        <option value="H">Permis H</option>
+                                                    </select>                                        
+                                                </div>
+                                            </form>
+                                        <div class="text-right">
+                                            <button type="button" onclick="mettreJour();" class="btn btn-primary"> <i class="fa fa-edit"></i>   Modifier
+                                            </button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <span class="iconify" data-icon="ps:work-case" data-inline="false"></span> Informations Professionnelles
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material" onsubmit="return false">
+                                                <div class="form-group form-default">
+                                                    <label>Nom Entreprise : </label>
+                                                    <input type="text" id="nomm" name="text-input" placeholder="" class="form-control">
+                                                    <a id="id_user" ></a>
+
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label>Titre de poste : </label>
+                                                    <input type="text" id="titreProfessionnel" name="text-input" placeholder="" class="form-control">
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Missions : </label>
+                                                    <textarea type="text" id="mission" name="text-input" placeholder="" class="form-control"></textarea>
+                                                </div>
+                                                
+                                            
+                                                <h5 class="text-left" style="color: rgb(65, 65, 75);"><i><u>Emploi Souhaité</i></u></h5>
+                                                <div class="form-group form-default">
+                                                    <label > Situation Professionnelle : </label>
+                                                    <select id="situationPro" class="form-control" name="">
+                                                        <option value="Etudiant">Etudiant</option>
+                                                        <option value=" En poste" >En poste</option>
+                                                        <option value="Disponible">Disponible</option>
+                                                    </select>                                        
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Type de poste : </label>
+                                                    <select id="typePoste" class="form-control" name="">
+                                                        <option value="PFE">stage/PFE</option>
+                                                        <option value=" Stage" >Stage</option>
+                                                        <option value="Saisonnier">Saisonnier</option>
+                                                        <option value="Freelancer">Freelancer</option>
+                                                        <option value="CDI">CDI</option>
+                                                        <option value="CDD">CDD</option>
+                                                        <option value="SIVP">SIVP</option>
+                                                    </select>                                        
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label> Occupation : </label>
+                                                    <select id="occupation" class="form-control" name="">
+                                                        <option value="plein">Temps plein</option>
+                                                        <option value="partiel" >Temps partiel</option>
+                                                    </select>                                        
+                                                </div>
+                                            </form>
+                                        
+                                        <div class="text-right">
+                                            <button type="button" onclick="metjour();" class="btn btn-primary"> <i class="iconify"  data-icon="fa:edit" data-inline="false"></i>   Modifier
+                                            </button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-graduation-cap fa-fw"></i> Diplôme et formation:
+                                        </div>
+                                                            <!-- /.panel-heading -->
+                                        <div class="panel-body">
+                                            <form class="form-material" onsubmit="return false">
+                                                <div class="form-group form-default">
+                                                    <label > Niveau d'étude actuel :</label>
+                                                    <select id="etd" class="form-control" name="">
+                                                        <option value="Lycée">Lycée/Bac</option>
+                                                        <option value="Etudiant">Etudiant</option>
+                                                        <option value="BTS">BTS/BTP</option>
+                                                        <option value="Ingénieur">Ingénieur</option>
+                                                        <option value="Doctorat">Doctorat</option>
+                                                        <option value="Maitrise">Maitrise</option>
+                                                    </select> 
+                                                    <a id="id_user" ></a>
+                                   
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Diplôme ou spécialité :</label>
+                                                    <input type="text" id="diplomeObtenu" name="text-input" placeholder="" class="form-control">
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Etablissement :</label>
+                                                    <input type="text" id="etablissement" name="text-input" placeholder="" class="form-control">
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Date début :</label>
+                                                    <input type="date" id="dateDeb" name="date" class="form-control">
+                                                    <label >Date Fin :</label>
+                                                    <input type="date" id="dateFin" name="date" class="form-control">
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Statut diplôme :</label>
+                                                    <select id="statut" class="form-control" name="">
+                                                        <option value="Obtenu">Obtenu</option>
+                                                        <option value=" validé" >Non validé</option>
+                                                        <option value="cours">En cours</option>
+                                                    </select>                                    
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label >Mention :</label>
+                                                    <input type="text" id="mention" name="text-input" placeholder="" class="form-control">
+                                                </div>
+                                            </form>
+                                        <div class="text-right">
+                                            <button type="button" onclick="updt();" class="btn btn-primary"> <i class="iconify"  data-icon="fa:edit" data-inline="false"></i>   Modifier
+                                            </button>
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <span class="iconify" data-icon="raphael:settingsalt" data-inline="false"></span> Compétences
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material" onsubmit="return false">
+                                                <div class="form-group form-default">
+                                                    <label >Description :</label>
+                                                    <textarea type="text" id="titre" name="text-input" class="form-control"></textarea>
+                                                </div>
+                                            </form>                            
+                                        
+                                        <div class="text-right">
+                                            <button type="button" onclick="Ajouter();" class="btn btn-primary"> <i class="fa fa-plus" ></i>   Ajouter
+                                            </button>
+                                        </div>
+                                        <div class="profile-content" id="listcomp">	
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-leaf fa-fw"></i>  Projets
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material" onsubmit="return false">
+                                                <div class="form-group form-default">
+                                                    <label >Description :</label>
+                                                    <textarea type="text" id="description1" name="text-input" class="form-control"></textarea>
+                                                    <a id="id_user"></a>
+                                                </div>
+                                            </form>                            
+                                        
+                                        <div class="text-right">
+                                            <button type="button" onclick="ajout();" class="btn btn-primary"> <i class="fa fa-plus" ></i>    Ajouter
+                                            </button>
+                                        </div>
+                                        <div class="profile-content" id="listprojet">	
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <span class="iconify" data-icon="grommet-icons:language" data-inline="false"></span> Langues
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material" onsubmit="return false">
+                                                <div class="form-group form-default">
+                                                    <label >Nom  :</label>
+                                                    <textarea type="text" id="nom1" name="text-input" class="form-control"></textarea>
+                                                    <a id="id_user"></a>
+                                                </div>
+                                            </form>                             
+                                        
+                                        <div class="text-right">
+                                            <button type="button" onclick="ajoute();" class="btn btn-primary"> <i class="fa fa-plus" ></i>    Ajouter
+                                            </button>
+                                        </div>
+                                        <div class="profile-content" id="listlang">	
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-9 col-sm-9">    
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <i class="fa fa-coffee fa-fw"></i> Centres d'intérets
+                                        </div>
+                                        <div class="panel-body">
+                                            <form class="form-material" onsubmit="return false">
+                                                <div class="form-group form-default">
+                                                    <label  >Description : </label>
+                                                    <textarea type="text" id="descri" name="text-input" class="form-control"></textarea>
+                                                    <a id="id_user"></a>
+                                                </div>
+                                                <div class="form-group form-default">
+                                                    <label  >Points Forts : </label>
+                                                    <textarea type="text" id="pointsForts" name="text-input" class="form-control"></textarea>
+                                                </div>
+                                            </form>                            
+                                        
+                                        <div class="text-right">
+                                            <button type="button" onclick="ajou();" class="btn btn-primary"> <i class="fa fa-plus" ></i>    Ajouter
+                                            </button>
+                                        </div>
+                                        <div class="profile-content" id="listci">	
+                                        </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-9 col-sm-9">    
+                                <a type="button" id="btnview" class="btn btn-primary"> <i class="fa fa-print" ></i> CV PDF
+                                </a> </div>
+                                <script>
+                                    var c = localStorage.getItem("id");
+                                    document.getElementById("btnview").href = "view_profil.html?id=" + c;
+                                </script>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</section>
+		
+
+
+        <script> 
+            var c = localStorage.getItem("id");
+			console.log(c); 
+    
+            var url3 = "http://127.0.0.1:3000/users/" + c ; 
+            var xhr3 = new XMLHttpRequest(); 
+            xhr3.open("GET", url3, true); 
+            xhr3.onload = function () { 
+            var users = JSON.parse(xhr3.responseText); 
+            if (xhr3.readyState == 4 && xhr3.status == "200") { 
+           document.getElementById("nom").value = users.nom;
+           document.getElementById("prenom").value =users.prenom;
+           document.getElementById("email").value =users.email;
+           document.getElementById("ville").value = users.ville;
+           document.getElementById("dateNaissance").value =users.dateNaissance;
+           document.getElementById("niveauEducation").value =users.niveauEducation;
+           document.getElementById("niveauEexperience").value =users.niveauEexperience;
+           document.getElementById("numTel").value =users.numTel;
+           document.getElementById("travailSouhaite").value =users.travailSouhaite;
+           document.getElementById("typeClient").value =users.typeClient;
+           document.getElementById("lieutravailSouhaite").value =users.lieutravailSouhaite;
+           document.getElementById("password").value = users.password;
+
+          
+        } else { 
+                console.log("error"); 
+            } 
+                } 
+                xhr3.send(null); 
+            
+        </script>
+
+        <script>
+            var c = localStorage.getItem("id");
+            // Create a request variable and assign a new XMLHttpRequest object to it.
+            var request = new XMLHttpRequest()
+            // Open a new connection, using the GET request on the URL endpoint
+            request.open('GET', 'http://127.0.0.1:3000/info_pers', true)
+            request.onload = function()
+            {
+                // Begin accessing JSON data here
+                var data = JSON.parse(this.response)
+                console.log(data);
+                var j = 1;
+                data.forEach(i => {
+                    console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == c)
+                    {
+                        document.getElementById("photo").src = i.photo;
+                        document.getElementById("sexe").value = i.sexe;
+                        document.getElementById("etatCivil").value = i.etatCivil;
+                        document.getElementById("adresse").value = i.adresse;
+                        document.getElementById("codePostal").value = i.codePostal;
+                        document.getElementById("typePermis").value = i.typePermis;
+                        document.getElementById("id_user").value = i.id_user;
+
+                        localStorage.setItem("id_info_per", i._id);
+
+                    }
+                })
+            }
+            // Send request
+            request.send()
+        </script>
+
+        <script>
+            var c = localStorage.getItem("id");
+            var request = new XMLHttpRequest()
+            // Open a new connection, using the GET request on the URL endpoint
+            request.open('GET', 'http://127.0.0.1:3000/info_pros', true)
+            request.onload = function()
+            {
+                // Begin accessing JSON data here
+                var data = JSON.parse(this.response)
+                console.log(data);
+                var j = 1;
+                data.forEach(i => {
+                    console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == c)
+                    {
+                        document.getElementById("nomm").value = i.nomEnt;
+                        document.getElementById("titreProfessionnel").value = i.titreProfessionnel;
+                        document.getElementById("typePoste").value = i.typePoste;
+                        document.getElementById("occupation").value = i.occupation;
+                        document.getElementById("mission").value = i.mission;
+                        document.getElementById("situationPro").value = i.situationPro;
+                        document.getElementById("id_user").value = i.id_user;
+
+                        
+                        localStorage.setItem("id_info_pro", i._id);
+
+                    }
+                })
+            }
+            // Send request
+            request.send()
+        </script>
+
+
+        <script>
+            var c = localStorage.getItem("id");
+            var request = new XMLHttpRequest()
+            // Open a new connection, using the GET request on the URL endpoint
+            request.open('GET', 'http://127.0.0.1:3000/diplomes', true)
+            request.onload = function()
+            {
+                // Begin accessing JSON data here
+                var data = JSON.parse(this.response)
+                console.log(data);
+                var j = 1;
+                data.forEach(i => {
+                    console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == c)
+                    {
+                        document.getElementById("etd").value = i.nEtude;
+                        document.getElementById("diplomeObtenu").value = i.diplomeObtenu;
+                        document.getElementById("etablissement").value = i.etablissement;
+                        document.getElementById("dateDeb").value = i.dateDeb;
+                        document.getElementById("dateFin").value = i.dateFin;
+                        document.getElementById("mention").value = i.mention;
+                        document.getElementById("statut").value = i.statut;
+                        document.getElementById("id_user").value = i.id_user;
+
+
+                        localStorage.setItem("id_diplome", i._id);
+                    }
+                })
+            }
+            // Send request
+            request.send()
+        </script>
+
+
+
+<script>
+    function update(){
+       var c = localStorage.getItem("id");
+       console.log(c);
+
+
+     // Post a user
+       
+               var url = "http://127.0.0.1:3000/users/" +c;
+                       
+               var data = {};
+               data.nom   = document.getElementById("nom").value;
+               data.email = document.getElementById("email").value;
+               data.prenom  = document.getElementById("prenom").value;
+               data.password  = document.getElementById("password").value;
+               data.ville  = document.getElementById("ville").value;
+               data.dateNaissance  = document.getElementById("dateNaissance").value;
+               data.niveauEducation  = document.getElementById("niveauEducation").value;
+               data.numTel  = document.getElementById("numTel").value;
+               data.niveauEexperience  = document.getElementById("niveauEexperience").value;
+               data.travailSouhaite  = document.getElementById("travailSouhaite").value;
+               data.typeClient  = document.getElementById("typeClient").value;
+               data.lieutravailSouhaite  = document.getElementById("lieutravailSouhaite").value;
+
+
+               localStorage.setItem("nom",data.nom);
+
+
+               var json = JSON.stringify(data);
+               var xhr = new XMLHttpRequest();
+               xhr.open("PUT", url, true);
+               xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+               xhr.onload = function () {
+                   var users = JSON.parse(xhr.responseText);
+                   if (xhr.readyState == 4 && xhr.status == "200") {
+                       alert("Profil Modifié!");
+                       location.replace("profil.html");
+                   } else {
+                       console.error(users);
+                       location.replace("profil.html");
+                   }
+               }
+               xhr.send(json);
+   }
+   
+   
+</script>
+
+<script>
+    
+    function mettreJour(){
+       var d = localStorage.getItem("id_info_per");
+       console.log(d);
+       
+               var url = "http://127.0.0.1:3000/info_pers/" +d;
+                       
+               var data = {};
+               data.photo   = document.getElementById("photo").src;
+               data.sexe   = document.getElementById("sexe").value;
+               data.etatCivil = document.getElementById("etatCivil").value;
+               data.adresse  = document.getElementById("adresse").value;
+               data.codePostal  = document.getElementById("codePostal").value;
+               data.typePermis  = document.getElementById("typePermis").value;
+               data.id_user  = document.getElementById("id_user").value;
+
+
+               var json = JSON.stringify(data);
+               var xhr = new XMLHttpRequest();
+               xhr.open("PUT", url, true);
+               xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+               xhr.onload = function () {
+                   var info_pers = JSON.parse(xhr.responseText);
+                   if (xhr.readyState == 4 && xhr.status == "200") {
+                       alert("Profil Modifié!");
+                       location.replace("profil.html");
+                   } else {
+                       console.error(info_pers);
+                       location.replace("profil.html");
+                   }
+               }
+               xhr.send(json);
+   }
+   
+</script>
+
+<script>
+    function metjour(){
+       var e = localStorage.getItem("id_info_pro");
+       console.log(e);
+
+
+     // Post a user
+       
+               var url = "http://127.0.0.1:3000/info_pros/" +e;
+                       
+               var data = {};
+               data.nomEnt  = document.getElementById("nomm").value;
+               data.titreProfessionnel   = document.getElementById("titreProfessionnel").value;
+               data.typePoste = document.getElementById("typePoste").value;
+               data.mission = document.getElementById("mission").value;
+               data.occupation  = document.getElementById("occupation").value;
+               data.situationPro  = document.getElementById("situationPro").value;
+               data.id_user  = document.getElementById("id_user").value;
+
+
+
+               var json = JSON.stringify(data);
+               var xhr = new XMLHttpRequest();
+               xhr.open("PUT", url, true);
+               xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+               xhr.onload = function () {
+                   var info_pros = JSON.parse(xhr.responseText);
+                   if (xhr.readyState == 4 && xhr.status == "200") {
+                       alert("Profil Modifié!");
+                       location.replace("profil.html");
+                   } else {
+                       console.error(info_pros);
+                       location.replace("profil.html");
+                   }
+               }
+               xhr.send(json);
+   }
+   
+   
+</script>
+
+<script>
+    function Ajouter(){
+        // Post an offre
+        var url = "http://127.0.0.1:3000/competences";
+        var data = {};
+        // récupération des données dans la variable data .
+        data.titre = document.getElementById("titre").value;
+        data.id_user = document.getElementById("id_user").value;
+
+         var json = JSON.stringify(data);
+        var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+        xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès auserveur pour avoir la possibilité d'envoyer les données au serveur .
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+        xhr.onload = function () {
+        var competences = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.table(competences);
+            alert(" Compétences ajoutées ");
+            location.replace("profil.html");
+        } else {
+            alert(competences.message);
+            console.table(competences);
+        }
+    }
+    xhr.send(json);
+}
+
+</script>
+
+<script>
+    function ajout(){
+        // Post an offre
+        var url = "http://127.0.0.1:3000/projets";
+        var data = {};
+        // récupération des données dans la variable data .
+        data.description1 = document.getElementById("description1").value;
+        data.id_user = document.getElementById("id_user").value;
+
+         var json = JSON.stringify(data);
+        var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+        xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès auserveur pour avoir la possibilité d'envoyer les données au serveur .
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+        xhr.onload = function () {
+        var projets = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.table(projets);
+            alert(" Projets ajoutés ");
+            location.replace("profil.html");
+        } else {
+            alert(projets.message);
+            console.table(projets);
+        }
+    }
+    xhr.send(json);
+}
+
+</script>
+
+<script>
+    function ajoute(){
+        // Post an offre
+        var url = "http://127.0.0.1:3000/langues";
+        var data = {};
+        // récupération des données dans la variable data .
+        data.nom1 = document.getElementById("nom1").value;
+        data.id_user = document.getElementById("id_user").value;
+
+         var json = JSON.stringify(data);
+        var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+        xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès auserveur pour avoir la possibilité d'envoyer les données au serveur .
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+        xhr.onload = function () {
+        var langues = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.table(langues);
+            alert(" Langues ajoutées ");
+            location.replace("profil.html");
+        } else {
+            alert(langues.message);
+            console.table(langues);
+        }
+    }
+    xhr.send(json);
+}
+
+</script>
+
+<script>
+    function ajou(){
+        // Post an offre
+        var url = "http://127.0.0.1:3000/centres_interets";
+        var data = {};
+        // récupération des données dans la variable data .
+        data.descri = document.getElementById("descri").value;
+        data.pointsForts  = document.getElementById("pointsForts").value;
+        data.id_user = document.getElementById("id_user").value;
+
+         var json = JSON.stringify(data);
+        var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+        xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès auserveur pour avoir la possibilité d'envoyer les données au serveur .
+        xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+        xhr.onload = function () {
+        var centres_interets = JSON.parse(xhr.responseText);
+        if (xhr.readyState == 4 && xhr.status == "200") {
+            console.table(centres_interets);
+            alert("Activités ajoutées ");
+            location.replace("profil.html");
+        } else {
+            alert(centres_interets.message);
+            console.table(centres_interets);
+        }
+    }
+    xhr.send(json);
+}
+
+</script>
+
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/competences', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listcomp");
+        data.forEach(i => {
+            {
+                console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == localStorage.getItem("id")){
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <ul class="information">
+                                <li>`+i.titre+`
+                                <div class="text-right">
+                               								
+									<a  href=delete_cmp.html?id=`+i._id+`>
+									<button type="button" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i>
+									</button>
+									</a>
+								
+                            </div>
+                        </li>
+									
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/projets', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listprojet");
+        data.forEach(i => {
+            {
+                console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == localStorage.getItem("id")){
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <ul class="information">
+                                <li>`+i.description1+`
+                                <div class="text-right">
+                               								
+									<a  href=delete_projet.html?id=`+i._id+`>
+									<button type="button" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i>
+									</button>
+									</a>
+								
+                            </div>
+                        </li>
+									
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/langues', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listlang");
+        data.forEach(i => {
+            {
+                console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == localStorage.getItem("id")){
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <ul class="information">
+                                <li>`+i.nom1+`
+                                <div class="text-right">
+                               								
+									<a  href=delete_lang.html?id=`+i._id+`>
+									<button type="button" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i>
+									</button>
+									</a>
+								
+                            </div>
+                        </li>
+									
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/centres_interets', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listci");
+        data.forEach(i => {
+            {
+                console.log(i._id);
+                    console.log(i.id_user);
+                    if(i.id_user == localStorage.getItem("id")){
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <ul class="information">
+                                <li>`+i.descri+` <br>
+                                 `+i.pointsForts+`</li>
+                                <div class="text-right">
+                               								
+									<a  href=delete_ci.html?id=`+i._id+`>
+									<button type="button" class="btn btn-danger btn-sm"> <i class="fa fa-trash"></i>
+									</button>
+									</a>
+								
+                            </div>
+                        </li>
+                        
+									
+                            </ul>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+  
+<script>
+            
+    function updt(){
+       var f = localStorage.getItem("id_diplome");
+       console.log(f);
+
+
+     // Post a user
+       
+               var url = "http://127.0.0.1:3000/diplomes/" +f;
+                       
+               var data = {};
+               data.nEtude  = document.getElementById("etd").value;
+               data.diplomeObtenu   = document.getElementById("diplomeObtenu").value;
+               data.etablissement = document.getElementById("etablissement").value;
+               data.dateDeb = document.getElementById("dateDeb").value;
+               data.dateFin  = document.getElementById("dateFin").value;
+               data.mention  = document.getElementById("mention").value;
+               data.statut  = document.getElementById("statut").value;
+               data.id_user  = document.getElementById("id_user").value;
+
+               var json = JSON.stringify(data);
+               var xhr = new XMLHttpRequest();
+               xhr.open("PUT", url, true);
+               xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+               xhr.onload = function () {
+                   var diplomes = JSON.parse(xhr.responseText);
+                   if (xhr.readyState == 4 && xhr.status == "200") {
+                       alert("Profil Modifié!");
+                       location.replace("profil.html");
+                   } else {
+                       console.error(diplomes);
+                       location.replace("profil.html");
+                   }
+               }
+               xhr.send(json);
+   }
+   
+   
+</script>
+
+
+    
+		<script>
+			function logout()
+			 {
+				 var c = window.confirm("Voulez-vous vraiment vous déconnecter ?")
+				 if(c== true)
+				 {
+					 localStorage.clear();
+					 location.replace("login.html");
+				 }
+		
+			}
+		</script>
+
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+    </body>
+
+<!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:43 GMT -->
+</html>

@@ -1,0 +1,285 @@
+<script>
+    if (!localStorage.getItem("id")) 
+    {
+        location.replace("login.html")
+    }
+</script>
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>User | offre</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-bars"></i>
+					</button>
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="index.html">Your </a>  <a style="color:#636e7b;" href="index.html"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+            <li><a href="index.html"><span class="iconify" data-icon="ant-design:home-filled" data-inline="false"></span>   Accueil</a></li> 
+            <li><a href="profil.html"><span class="iconify" data-icon="simple-line-icons:user" data-inline="false"></span>   Profil</a></li>
+            <li><a href="offres_emploi.html"><span class="iconify" data-icon="fa:th-large" data-inline="false"></span>   Offres d'emploi</a></li>
+            <li><a href="favoris.html"><span class="iconify" data-icon="clarity:favorite-solid" data-inline="false"></span>   Favoris Offres</a></li>
+                          <li><a href="offre.html"><span class="iconify" data-icon="fa:copy" data-inline="false"></span>   Offres Postulés</a></li>
+                          <li><a href="offreia.html"><span class="iconify" data-icon="fa:copy" data-inline="false"></span>   Offres Recommandés</a></li>
+
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="iconify" data-icon="feather:settings" data-inline="false"></span>   Paramétres</a>
+              <ul class="dropdown-menu animated fadeOutUp" style="display: none; opacity: 1;">
+                <li class="active"><a href="change_psw.html"> Changer mot de passe </a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#" class="nav-link" onclick="logout();">
+                <p class="text"><span class="iconify" data-icon="websymbol:logout" data-inline="false"></span>   Se déconnecter </p>
+              </a>
+              </li>
+          </ul>
+				</div><!-- /.navbar-collapse -->
+			</div>   
+		</nav>
+		<!-- Navigation End  --> 
+    
+        <section class="profile-detail">
+			    <div class="container">
+            <div class="col-md-7">
+              <div class="row ">
+                <p>
+                  <a href="index.html">
+                    <i class="fa fa-arrow-circle-left" style="font-size:30px;color:#636e7b"></i>
+                  </a>
+                </p>
+                        <div class="card card-primary">
+                            <div class="card-block">
+                                <div class="basic-information">
+                                  
+
+                                    <div class="col-md-3 col-sm-3">
+                                        <img id="pic" alt="" class="img-responsive pic">
+                                    </div> <br>
+                                    <style>
+                                      .center { 
+                                        display: block;
+                                        margin-left: auto;
+                                        margin-right: auto;
+                                        width: 50%;
+                                      }
+                                    </style>
+
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                          <h1  style="color: rgb(140, 0, 255); text-align: center;" id="nomSte"> </h1>
+                                          <button type="button" class="btn btn-outline-secondary center">
+                                            <a  id="id_entreprise1" href="societe.html"+c+><span class="iconify" data-icon="akar-icons:eye" data-inline="false"></span> Détails</a>
+                                          </button>
+
+                                        </div>
+                                      </div>
+
+                                      
+                                      <div class="col-md-12">
+                                        <div class="form-group">
+                                          <p style="text-align: right;" id="localite"></p>
+                                        </div>
+                                        </div> <br>
+                                        <div class="col-md-12">
+                                        <div class="form-group">
+                                          <p style="text-align: right;" id="tempsTravail"></p>
+                                        </div>
+                                      </div>
+                                        <br>
+                      
+                                        <div class="form-group">
+                                          <label> Type de poste : </label>
+                                          <a id="typePoste"></a>
+                                          <a hidden id="id_recruteur" ></a>
+                                        </div>
+                                        <a hidden id="domaine" ></a>
+                                        <a hidden id="id_entreprise" ></a>
+                                        <a hidden id="datePub" ></a>
+
+                                        <div class="form-group">
+                                            <label> Missions : </label>
+                                            <a id="missions"></a>
+                                          </div>
+                        
+                                          <div class="form-group">
+                                            <label> Exigences de travail : </label>
+                                            <a id="exigencesTravail"></a>
+                                          </div>
+                        
+                                          <div class="form-group">
+                                            <label> Compétences : </label>
+                                            <a id="competences"></a>
+                                          </div>
+
+                                          <div class="form-group">
+                                            <label> Salaire : </label>
+                                            <a id="salaire"></a>
+                                          </div>
+                                          <button onclick="add();" type="button" class="btn view-job" style="background-color: #738880;">Ajouter favoris</button> 
+                                          <a id="postul" class="btn view-job" style="background-color: #089e65;">Postuler</a> 
+
+                                      </div>
+                                      
+                                    </div>
+                            </div>
+                        </div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+<script>
+  var url_string = window.location.href
+  var url = new URL(url_string);
+  var x = url.searchParams.get("id");
+document.getElementById("postul").href = "postuler.html?id=" + x;
+</script>
+
+
+        <script>
+            var url_string = window.location.href
+            var url = new URL(url_string);
+            var c = url.searchParams.get("id");
+            console.log(c);
+    
+            // Post a user
+            var url3 = "http://127.0.0.1:3000/offres/" + c ;
+            var xhr3 = new XMLHttpRequest();
+            xhr3.open("GET", url3, true);
+    
+            xhr3.onload = function () {
+                var offres = JSON.parse(xhr3.responseText);
+                if (xhr3.readyState == 4 && xhr3.status == "200") {
+
+                    document.getElementById("nomSte").innerHTML = offres.nomSte;
+                    document.getElementById("id_recruteur").innerHTML = offres.id_recruteur;
+                    document.getElementById("localite").innerHTML = offres.localite;
+                    document.getElementById("domaine").innerHTML = offres.domaine;
+                    document.getElementById("datePub").innerHTML = offres.datePub;
+                    document.getElementById("pic").src = offres.pic;
+                    document.getElementById("typePoste").innerHTML = offres.typePoste;
+                    document.getElementById("missions").innerHTML = offres.missions;
+                    document.getElementById("exigencesTravail").innerHTML = offres.exigencesTravail;
+                    document.getElementById("competences").innerHTML = offres.competences;
+                    document.getElementById("tempsTravail").innerHTML = offres.tempsTravail;
+                    document.getElementById("salaire").innerHTML = offres.salaire + "D";
+                    document.getElementById("id_entreprise").innerHTML = offres.id_entreprise;
+                    var x = document.getElementById("id_entreprise").innerHTML;
+                    document.getElementById("id_entreprise1").href = "societe.html?id=" + x;
+
+
+
+    
+    
+                } else {
+    
+                    console.log("error");
+                }
+            }
+    
+            xhr3.send(null);
+            
+        </script>
+
+
+
+<script>
+ 
+      function add(){
+        var url_string = window.location.href
+            var url = new URL(url_string);
+            var c = url.searchParams.get("id");
+            console.log(c);
+          // Post an offre
+          var url = "http://127.0.0.1:3000/favoris";
+          var data = {};
+          // récupération des données dans la variable data .
+          data.nomSte = document.getElementById("nomSte").innerHTML;
+          data.id_recruteur = document.getElementById("id_recruteur").innerHTML;
+          data.id_entreprise = localStorage.getItem("id_entreprise");
+          data.localite = document.getElementById("localite").innerHTML;
+          data.typePoste = document.getElementById("typePoste").innerHTML;
+          data.missions = document.getElementById("missions").innerHTML;
+          data.exigencesTravail = document.getElementById("exigencesTravail").innerHTML;
+          data.competences= document.getElementById("competences").innerHTML;
+          data.tempsTravail = document.getElementById("tempsTravail").innerHTML;
+          data.salaire = document.getElementById("salaire").innerHTML;
+          data.pic = document.getElementById("pic").innerHTML; 
+          data.id_user = localStorage.getItem("id");
+          data.id_offre = c; 
+
+           var json = JSON.stringify(data);
+          var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+          xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès auserveur pour avoir la possibilité d'envoyer les données au serveur .
+          xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+          xhr.onload = function () {
+          var favoris = JSON.parse(xhr.responseText);
+          if (xhr.readyState == 4 && xhr.status == "200") {
+              console.table(favoris);
+              alert("Favori ajouté ");
+              location.replace("offres_emploi.html");
+          } else {
+              alert(favoris.message);
+              console.table(favoris);
+          }
+      }
+      xhr.send(json);
+  }
+
+  </script>
+
+
+
+        <script>
+			function logout()
+			 {
+				 var c = window.confirm("Voulez-vous vraiment vous déconnecter ?")
+				 if(c== true)
+				 {
+					 localStorage.clear();
+					 location.replace("login.html");
+				 }
+		
+			}
+		</script>
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+    <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+
+    </body>
+</html>
+    

@@ -1,0 +1,371 @@
+<script>
+    if (!localStorage.getItem("id")) 
+    {
+        location.replace("login.html")
+    }
+</script>
+  
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/resume.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title> Recruteur | Profil</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+
+		<!-- Navigation Start  -->
+
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-bars"></i>
+					</button>
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="index.html">Your </a>  <a style="color:#636e7b;" href="index.html"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+							<li><a href="index.html">Accueil</a></li> 
+							<li><a href="profil.html">Profil</a></li>
+                            <li><a href="offres.html">Offres</a></li>
+
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Paramétres</a>
+								<ul class="dropdown-menu animated fadeOutUp" style="display: none; opacity: 1;">
+									<li class="active"><a href="change_psw.html"> Changer mot de passe </a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="nav-link" onclick="logout();">
+								  <p class="text"> Se déconnecter </p>
+								</a>
+							  </li>
+						</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>   
+		</nav>
+		<!-- Navigation End  -->
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		
+
+
+	    <section class="content">
+			<div class="container-fluid">
+			  <div class="row">
+				  <div class="col-md-2"></div>
+				  <div class="col-md-5">
+					<div class="card card-primary">
+
+									<div class="card">
+										<div class="card-header">
+											<h4 class="text-center" style="color: rgb(65, 65, 75);">Informations Personnelles</h4>
+											<!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+										</div> <br>
+										<div class="card-block">
+											<form class="form-material">
+												<div class="form-group form-default">
+													<label style="color: rgb(63, 4, 27);" >Nom & Prénom: </label>
+												   <input id="nom" type="text" class="form-control" >
+													<a hidden id="password" ></a>
+												</div>
+											   <div class="form-group form-default">
+													<label style="color: rgb(63, 4, 27);">E-mail : </label>
+													<input id="email" type="text" class="form-control">
+												  <span class="form-bar"></span>
+											  </div>
+												<div class="form-group form-default">
+													<label style="color: rgb(63, 4, 27);">Poste : </label>
+													<input id="poste" type="text" class="form-control">
+												  <span class="form-bar"></span>
+											   </div>
+												<div class="form-group form-default">
+													<button onclick="update();"type="button" class="btn btn-primary">Mettre à jour</button>
+											 </div>
+										  </form>
+										</div>
+									</div>
+								</div> <br> <br>
+
+
+									<div class="card">
+										<div class="card-header">
+											<h4 style="text-align: center;">Informations d'entreprise</h4>
+										</div> <br>
+										<div class="card-block">
+											<form class="form-material" onsubmit="return false">
+												<div class="form-group form-default ">
+													<label style="color: rgb(63, 4, 27);" >Nom</label>
+													<input id="hadil" type="text" class="form-control" >
+													<a hidden id="id_recruteur" ></a>
+											   </div>
+
+												<div class="form-group form-default ">
+													<label style="color: rgb(63, 4, 27);">Adresse</label>
+													<input id="adresse" type="text" class="form-control" >
+											   </div>
+												<div class="form-group form-default ">
+													<label style="color: rgb(63, 4, 27);" >Site Web</label>
+													<input id="siteWeb" type="text" class="form-control ">
+												</div>
+												<div class="form-group form-default">
+													<label style="color: rgb(63, 4, 27);">Taille</label>
+														<select id="taille" class="form-control" name="">
+															<option value="1 à 9 employés">1 à 9 employés</option>
+															<option value="10 à 49 employés">10 à 49 employés</option>
+															<option value="50 à 249 employés">50 à 249 employés</option>
+															<option value="250 employés ou plus">250 employés ou plus</option>
+														</select>
+													</div>
+												</div>
+												<div class="form-group form-default ">
+													<label style="color: rgb(63, 4, 27);" >Description</label>
+													<textarea id= "description" type="text"  class="form-control"></textarea>
+													<span class="form-bar"></span>
+												</div>
+												<div class="form-group form-default ">
+													<label style="color: rgb(63, 4, 27);">Numéro du téléphone</label>
+													<input id="numTel"  type="text" class="form-control" >
+													<span class="form-bar"></span>
+											   </div>
+												<div class="form-group form-default ">
+													<label style="color: rgb(63, 4, 27);">Secteur</label>
+														<select id="secteur" class="form-control" name="">
+															<option value="Achat">Achat</option>
+															<option value="Administration">Administration</option>
+															<option value="Agriculture">Agriculture</option>
+															<option value="Agroalimentation">Agroalimentation</option>
+															<option value="Architecture">Architecture</option>
+															<option value="Artisanat">Artisanat</option>
+															<option value="Assurances">Assurances</option>
+															<option value="Banque">Banque </option>
+															<option value="Batiment">Batiment </option>
+															<option value="Biologie">Biologie</option>
+															<option value="Chimie">Chimie</option>
+															<option value="Commerce">Commerce</option>
+															<option value="Communication">Communication </option>
+															<option value="Droit">Droit</option>
+															<option value="Design">Design</option>
+															<option value="Informatique">Informatique</option>
+															<option value="Electronique"> Electronique</option>
+															<option value="Enseignement">Enseignement</option>
+															<option value="Gestion">Gestion </option>
+															<option value="Hotellerie">Hotellerie</option>
+															<option value="Industrie">Industrie  </option>
+															<option value="Lettres">Lettres </option>
+															<option value="Marketing">Marketing </option>
+															<option value="Mécanique">Mécanique </option>
+															<option value="Santé">Santé</option>
+															<option value="Secrétariat">Secrétariat - </option>
+															<option value="Esthétique">Esthétique </option>
+															<option value="Sport">Sport</option>
+															<option value="Télécommunications">Télécommunications</option>
+															<option value="Textile">Textile</option>
+															<option value="Transport">Transport</option>
+															<option value="Autres">Autres</option>
+														</select>
+											   </div>
+											   <div class="form-group form-default ">
+												<label style="color: rgb(63, 4, 27);">date du Création</label>
+												<input id="dateCreation" type="text" class="form-control" >
+												<span class="form-bar"></span>
+										    </div>
+										    <div class="form-group form-default">
+												<button onclick="mettreJour();" type="submit" class="btn btn-primary">Mettre à jour</button>
+											</div>
+											</form>
+		  </section>
+
+		  <script> 
+			var c = localStorage.getItem("id");
+			console.log(c); 
+	
+			var url3 = "http://127.0.0.1:3000/recruteurs/" + c ; 
+			var xhr3 = new XMLHttpRequest(); 
+			xhr3.open("GET", url3, true); 
+			xhr3.onload = function () { 
+			var recruteurs = JSON.parse(xhr3.responseText); 
+			if (xhr3.readyState == 4 && xhr3.status == "200") { 
+			
+		   
+		   document.getElementById("nom").value = recruteurs.nom;
+		   document.getElementById("email").value = recruteurs.email;
+		   document.getElementById("poste").value = recruteurs.poste;
+		   document.getElementById("password").value = recruteurs.password;
+		   
+	
+		   } else { 
+			console.log("error"); 
+		   } 
+			} 
+			xhr3.send(null); 
+			
+		  </script> 
+		  
+		<script>
+			var c = localStorage.getItem("id");
+			
+			// Create a request variable and assign a new XMLHttpRequest object to it.
+			var request = new XMLHttpRequest()
+			// Open a new connection, using the GET request on the URL endpoint
+			request.open('GET', 'http://127.0.0.1:3000/entreprises', true)
+			request.onload = function()
+			{
+				// Begin accessing JSON data here
+				var data = JSON.parse(this.response)
+				console.log(data);
+				data.forEach(i => {
+				console.log(i._id);
+				console.log(i.nom);
+				if (i.id_recruteur == c)
+				{
+					document.getElementById("hadil").value = i.nom;
+					document.getElementById("adresse").value = i.adresse;
+					document.getElementById("siteWeb").value = i.siteWeb;
+					document.getElementById("taille").value = i.taille;
+					document.getElementById("description").value = i.description;
+					document.getElementById("numTel").value = i.numTel;
+					document.getElementById("secteur").value = i.secteur;
+					document.getElementById("dateCreation").value = i.dateCreation;
+					document.getElementById("id_recruteur").value = i.id_recruteur;
+	
+	
+					localStorage.setItem("id_entreprise", i._id);
+	
+	
+					
+	
+				}
+				
+			})  
+		}
+		// Send request
+		request.send()
+		</script>
+	
+		<script>
+		 function update(){
+			var c = localStorage.getItem("id");
+			console.log(c);
+	
+	
+		  // Post a user
+			
+					var url = "http://127.0.0.1:3000/recruteurs/" +c;
+							
+					var data = {};
+					data.nom   = document.getElementById("nom").value;
+					data.email = document.getElementById("email").value;
+					data.poste  = document.getElementById("poste").value;
+					data.password  = document.getElementById("password").value;
+	
+					localStorage.setItem("nom",data.nom);
+	
+	
+					var json = JSON.stringify(data);
+					var xhr = new XMLHttpRequest();
+					xhr.open("PUT", url, true);
+					xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+					xhr.onload = function () {
+						var recruteurs = JSON.parse(xhr.responseText);
+						if (xhr.readyState == 4 && xhr.status == "200") {
+							alert("Profil Modifié!");
+							location.replace("profil.html");
+						} else {
+							console.error(recruteurs);
+							location.replace("profil.html");
+						}
+					}
+					xhr.send(json);
+		}
+		
+		
+	</script>
+	
+	<script>
+		function mettreJour(){
+		   var d = localStorage.getItem("id_entreprise");
+		   console.log(d);
+	
+	
+		 // Post a user
+		   
+				   var url = "http://127.0.0.1:3000/entreprises/" +d;
+						   
+				   var data = {};
+				   data.nom   = document.getElementById("hadil").value;
+				   data.adresse   = document.getElementById("adresse").value;
+				   data.siteWeb = document.getElementById("siteWeb").value;
+				   data.taille  = document.getElementById("taille").value;
+				   data.description  = document.getElementById("description").value;
+				   data.numTel  = document.getElementById("numTel").value;
+				   data.secteur  = document.getElementById("secteur").value;
+				   data.dateCreation  = document.getElementById("dateCreation").value;
+				   data.id_recruteur  = document.getElementById("id_recruteur").value;
+	
+	
+	
+				   var json = JSON.stringify(data);
+				   var xhr = new XMLHttpRequest();
+				   xhr.open("PUT", url, true);
+				   xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+				   xhr.onload = function () {
+					   var entreprises = JSON.parse(xhr.responseText);
+					   if (xhr.readyState == 4 && xhr.status == "200") {
+						   alert("Entreprise Modifiée!");
+						   location.replace("profil.html");
+					   } else {
+						   console.error(entreprises);
+						   location.replace("profil.html");
+					   }
+				   }
+				   xhr.send(json);
+	   }
+	   
+	   
+	</script>
+
+
+
+	<script>
+		function logout()
+		{
+			var c = window.confirm("Voulez-vous vraiment vous déconnecter ?")
+			if(c== true)
+			{
+				localStorage.clear();
+				location.replace("login.html");
+			}
+
+		}
+	</script>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+    </body>
+
+<!-- Mirrored from technext.github.io/jober-desk/resume.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+</html>

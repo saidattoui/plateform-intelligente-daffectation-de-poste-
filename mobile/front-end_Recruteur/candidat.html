@@ -1,0 +1,583 @@
+<script>
+    if (!localStorage.getItem("id")) 
+    {
+        location.replace("login.html")
+    }
+</script>
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:35 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Recruteur | candidat</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-bars"></i>
+					</button>
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="index.html">Your </a>  <a style="color:#636e7b;" href="index.html"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+							<li><a href="index.html">Accueil</a></li> 
+							<li><a href="profil.html">Profil</a></li>
+                            <li><a href="offres.html">Offres</a></li>
+
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Paramétres</a>
+								<ul class="dropdown-menu animated fadeOutUp" style="display: none; opacity: 1;">
+									<li class="active"><a href="change_psw.html"> Changer mot de passe </a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="nav-link" onclick="logout();">
+								  <p class="text"> Se déconnecter </p>
+								</a>
+							  </li>
+						</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>   
+		</nav>
+		<!-- Navigation End  --> 
+	
+
+		<section class="profile-detail">
+			<div class="container">
+				<div class="col-md-12">
+					<div class="row">
+                       
+						<div class="basic-information">
+							<div class="col-md-3 col-sm-3">
+                                <img id="photo" alt="" class="img img-responsive"> <br>
+							</div> <br>
+							<div class="col-md-9 col-sm-9">
+								<div class="profile-content">
+                                    <h2>
+                                        <a id="prenom"></a>
+                                        <a id="nom"></a>
+                                    </h2>  										
+                                    <ul class="information">
+                                            <li>
+                                                <label >Adresse E-mail : </label>
+                                                <a id="email" ></a>
+                                            </li>
+											<li>
+                                                <label >Numéro de téléphone : </label>
+                                                <a id= "numTel" ></a>
+                                            </li>
+											<li>
+                                                <label >Ville :</label>
+                                                <a  id="ville" ></a>
+                                            </li>
+											
+                                            <li>
+                                                <label >Niveau d'éducation : </label>
+                                                <a id= "niveauEducation" ></a>
+                                            </li>
+                                            <li>
+                                                <label >Niveau d'expérience : </label>
+                                                <a id= "niveauEexperience"></a>
+                                            </li>
+                                            <li>
+                                                <label >Type de demandeur: </label>
+                                                <a id= "typeClient"  ></a>
+                                            </li>
+                                            <li>
+                                                <label > Poste Désiré : </label>
+                                                <a id= "travailSouhaite" ></a>
+                                            </li>
+                                            <li>
+                                                <label > Lieu Désiré : </label>
+                                                <a id= "lieutravailSouhaite" ></a>
+                                            </li>
+										</ul>
+									</div>
+								</div>
+                                </div>
+							<br>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-user fa-fw"></i> Informations Personnelles
+								</div>
+													<!-- /.panel-heading -->
+								<div class="panel-body">
+                                    <ul>
+                                        <li>
+                                            <label >Date de naissance : </label>
+                                            <a id="dateNaissance" ></a>
+                                        </li>
+                                        <li>
+                                            <label >Sexe : </label>
+                                            <a id= "sexe"  ></a>
+                                        </li>
+                                        <li>
+                                            <label >Etat Civil :</label>
+                                            <a id= "etatCivil"></a>
+                                        </li>
+                                        <li>
+                                            <label >Adresse : </label>
+                                            <a id= "adresse" ></a>
+                                        </li>
+                                        <li>
+                                            <label >Type du demandeur: </label>
+                                            <a id= "typeClient"  ></a>
+                                        </li>
+                                        <li>
+                                            <label >Code postale : </label>
+                                            <a  id="codePostal" ></a>
+                                        </li>
+                                        <li>
+                                            <label >Type permis</label>
+                                            <a id="typePermis" ></a>
+                                        </li>
+                                </ul>
+                                </div>
+							</div>
+							
+                            <div class="panel panel-default">
+								<div class="panel-heading">
+									<span class="iconify" data-icon="ps:work-case" data-inline="false"></span> Informations Professionnelles
+								</div>
+													<!-- /.panel-heading -->
+								<div class="panel-body">
+                                    <ul>
+                                        <li>
+                                            <label>Nom Entreprise : </label>
+                                            <a id="nomEnt" ></a>
+                                        </li>
+                                        <li>
+                                            <label>Titre de poste : </label>
+                                            <a id="titrepro" ></a>
+                                        </li>
+                                        <li>
+                                            <label >Missions : </label>
+                                            <a id= "mission" ></a>
+                                        </li>
+                                        <h5 class="text-left" style="color: rgb(65, 65, 75);"><i><u>Emploi Souhaité</i></u></h5>
+                                        <li>
+                                            <label > Situation Professionnelle : </label>
+                                            <a id= "situationPro" ></a>
+                                        </li>
+                                        <li>
+                                            <label >Type de poste : </label>
+                                            <a id= "typePoste" ></a>
+                                        </li>
+                                        <li>                                
+                                            <label> Occupation : </label>
+                                            <a id="occupation"></a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+							<div class="panel panel-default">
+								<div class="panel-heading">
+                                    <i class="fa fa-graduation-cap fa-fw"></i> Diplôme et formation:
+								</div>
+													<!-- /.panel-heading -->
+								<div class="panel-body">
+								<ul>
+                                    <li>
+                                        <label > Niveau d'étude actuel :</label>
+                                        <a id="nEtude"></a>
+                                    </li>
+									<li>
+                                        <label >Diplôme ou spécialité :</label>
+                                        <a id="dip"></a>
+                                    </li>
+									<li>
+                                        <label >Etablissement :</label>
+                                        <a id= "etablissement" ></a>
+                                    </li>
+									<li>
+                                        <label >Date début :</label>
+                                        <a id= "dateDeb" ></a>
+                                    </li>
+                                    <li>
+                                        <label >Date Fin :</label>
+                                        <a id= "dateFin" ></a>
+                                    </li>
+                                    <li>    
+                                        <label >Statut diplôme :</label>
+                                        <a  id="statut" ></a>
+                                    </li>
+									<li>
+                                        <label >Mention :</label>
+                                        <a id= "mention" ></a>
+                                    </li>
+									
+									
+								</ul>
+								</div>
+							</div>
+							<div class="panel panel-default">
+								<div class="panel-heading">
+                                    <span class="iconify" data-icon="raphael:settingsalt" data-inline="false"></span> Compétences
+								</div>
+													<!-- /.panel-heading -->
+								<div class="panel-body">
+                                    <ul>
+                                        <li>
+                                            <label >Description :</label>
+                                            <a id="titre" ></a>
+                                        </li>
+                                    </ul>                            
+								</div>
+							</div>
+
+                            <div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-leaf fa-fw"></i>  Projets
+								</div>
+													<!-- /.panel-heading -->
+								<div class="panel-body">
+                                    <ul>
+                                        <li>
+                                            <label >Description :</label>
+                                            <a id= "description1" ></a>
+                                        </li>
+                                    </ul>                            
+								</div>
+							</div>
+
+                            <div class="panel panel-default">
+								<div class="panel-heading">
+                                    <span class="iconify" data-icon="grommet-icons:language" data-inline="false"></span> Langues
+								</div>
+													<!-- /.panel-heading -->
+								<div class="panel-body">
+                                    <ul>
+                                        <li>
+                                            <label >Nom  :</label>
+                                            <a id="nom1" ></a> 
+                                        </li>
+                                    </ul>                             
+								</div>
+							</div>
+
+                            <div class="panel panel-default">
+								<div class="panel-heading">
+									<i class="fa fa-coffee fa-fw"></i> Centres d'intérets
+								</div>
+								<div class="panel-body">
+                                    <a id="listci"></a>
+								</div>
+							</div>
+						</div>
+					</div>
+                    <div class="col-md-12 ; text-right">
+                        <button type="button" class="btn btn-primary" onclick="window.print()">   <i class="fa fa-print" ></i>Imprimer CV PDF</button>
+                    </div>
+				</div>
+			</div>
+		</section>
+		
+
+
+        <script> 
+            var url_string = window.location.href 
+            var url = new URL(url_string); 
+            var c = url.searchParams.get("id"); 
+            console.log(c); 
+    
+            var url3 = "http://127.0.0.1:3000/users/" + c ; 
+            var xhr3 = new XMLHttpRequest(); 
+            xhr3.open("GET", url3, true); 
+            xhr3.onload = function () { 
+            var users = JSON.parse(xhr3.responseText); 
+            if (xhr3.readyState == 4 && xhr3.status == "200") { 
+           document.getElementById("nom").innerHTML = users.nom;
+           document.getElementById("prenom").innerHTML =users.prenom;
+           document.getElementById("email").innerHTML =users.email;
+           document.getElementById("ville").innerHTML = users.ville;
+           document.getElementById("dateNaissance").innerHTML =users.dateNaissance;
+           document.getElementById("niveauEducation").innerHTML =users.niveauEducation;
+           document.getElementById("niveauEexperience").innerHTML =users.niveauEexperience;
+           document.getElementById("numTel").innerHTML =users.numTel;
+           document.getElementById("travailSouhaite").innerHTML =users.travailSouhaite;
+           document.getElementById("typeClient").innerHTML =users.typeClient;
+           document.getElementById("lieutravailSouhaite").innerHTML =users.lieutravailSouhaite;
+
+          
+       } else { 
+            console.log("error"); 
+           } 
+            } 
+            xhr3.send(null); 
+            
+          </script>
+    
+    <script>
+            var url_string = window.location.href 
+            var url = new URL(url_string); 
+            var c = url.searchParams.get("id"); 
+            console.log(c); 
+    
+        // Create a request variable and assign a new XMLHttpRequest object to it.
+        var request = new XMLHttpRequest()
+        // Open a new connection, using the GET request on the URL endpoint
+        request.open('GET', 'http://127.0.0.1:3000/info_pros', true)
+        request.onload = function()
+        {
+            // Begin accessing JSON data here
+            var data = JSON.parse(this.response)
+            console.log(data);
+            var j = 1;
+            data.forEach(i => {
+                console.log(i.id_user);
+                if(i.id_user == c)
+                {
+                    document.getElementById("titrepro").innerHTML = i.titreProfessionnel;
+                    document.getElementById("typePoste").innerHTML = i.typePoste;
+                    document.getElementById("occupation").innerHTML = i.occupation;
+                    document.getElementById("nomEnt").innerHTML = i.nomEnt;
+                    document.getElementById("mission").innerHTML = i.mission;
+                    document.getElementById("situationPro").innerHTML = i.situationPro;      
+                }
+            })
+        }
+        // Send request
+        request.send()
+    </script>
+    
+    <script>
+        var url_string = window.location.href 
+        var url = new URL(url_string); 
+        var c = url.searchParams.get("id"); 
+        console.log(c); 
+    
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://127.0.0.1:3000/diplomes', true)
+    request.onload = function()
+    {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        console.log(data);
+        var j = 1;
+        data.forEach(i => {
+            console.log(i.id_user);
+            if(i.id_user == c)
+            {
+                document.getElementById("dip").innerHTML = i.diplomeObtenu;
+                document.getElementById("etablissement").innerHTML = i.etablissement;
+                document.getElementById("mention").innerHTML = i.mention;
+                document.getElementById("statut").innerHTML = i.statut;
+                document.getElementById("nEtude").innerHTML = i.nEtude;
+                document.getElementById("dateDeb").innerHTML = i.dateDeb;
+                document.getElementById("dateFin").innerHTML = i.dateFin;
+            }
+        })
+    }
+    // Send request
+    request.send()
+    </script>
+    <script>
+        var url_string = window.location.href 
+        var url = new URL(url_string); 
+        var c = url.searchParams.get("id"); 
+        console.log(c); 
+    
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://127.0.0.1:3000/info_pers', true)
+    request.onload = function()
+    {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        console.log(data);
+        var j = 1;
+        data.forEach(i => {
+            console.log(i.id_user);
+            if(i.id_user == c)
+            {
+                document.getElementById("photo").src = i.photo;
+                document.getElementById("sexe").innerHTML = i.sexe;
+                document.getElementById("etatCivil").innerHTML = i.etatCivil;
+                document.getElementById("adresse").innerHTML = i.adresse;
+                document.getElementById("codePostal").innerHTML = i.codePostal;
+                document.getElementById("typePermis").innerHTML = i.typePermis;
+                
+            }
+        })
+    }
+    // Send request
+    request.send()
+    </script>
+    
+    
+    <script>
+        var url_string = window.location.href 
+        var url = new URL(url_string); 
+        var c = url.searchParams.get("id"); 
+        console.log(c); 
+    
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://127.0.0.1:3000/competences', true)
+    request.onload = function()
+    {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        console.log(data);
+        var j = 1;
+        data.forEach(i => {
+            console.log(i.id_user);
+            if(i.id_user == c)
+            {
+                document.getElementById("titre").innerHTML = i.titre;
+            }
+        })
+    }
+    // Send request
+    request.send()
+    </script>
+    
+    <script>
+        var url_string = window.location.href 
+        var url = new URL(url_string); 
+        var c = url.searchParams.get("id"); 
+        console.log(c); 
+    
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://127.0.0.1:3000/projets', true)
+    request.onload = function()
+    {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        console.log(data);
+        var j = 1;
+        data.forEach(i => {
+            console.log(i.id_user);
+            if(i.id_user == c)
+            {
+                document.getElementById("description1").innerHTML = i.description1;
+    
+            }
+        })
+    }
+    // Send request
+    request.send()
+    </script>
+    
+    <script>
+        var url_string = window.location.href 
+        var url = new URL(url_string); 
+        var c = url.searchParams.get("id"); 
+        console.log(c); 
+    
+    // Create a request variable and assign a new XMLHttpRequest object to it.
+    var request = new XMLHttpRequest()
+    // Open a new connection, using the GET request on the URL endpoint
+    request.open('GET', 'http://127.0.0.1:3000/langues', true)
+    request.onload = function()
+    {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        console.log(data);
+        var j = 1;
+        data.forEach(i => {
+            console.log(i.id_user);
+            if(i.id_user== c)
+            {
+                document.getElementById("nom1").innerHTML = i.nom1;
+            }
+        })
+    }
+    // Send request
+    request.send()
+    </script>
+
+<script>
+    var request = new XMLHttpRequest()
+    request.open('GET', 'http://127.0.0.1:3000/centres_interets', true)
+    request.onload = function() {
+        // Begin accessing JSON data here
+        var data = JSON.parse(this.response)
+        var j = 1;
+        var ee = document.getElementById("listci");
+        data.forEach(i => {
+            {
+                    console.log(i.id_user);
+                    if(i.id_user == c) {
+                ch = `
+                <div class="profile-content">
+                    <div class="row">
+                        <div class="col-md-8 col-sm-8">
+                            <div class="information">
+                                `+i.descri+` <br>
+                                 `+i.pointsForts+`
+                       
+                        
+									
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                `;
+                ee.insertAdjacentHTML('beforeend',ch);
+                j = j+1;
+            }}
+        })
+    }
+
+        
+    // Send request
+    request.send()    
+  </script>
+    
+
+		<script>
+			function logout()
+			 {
+				 var c = window.confirm("Voulez-vous vraiment vous déconnecter ?")
+				 if(c== true)
+				 {
+					 localStorage.clear();
+					 location.replace("login.html");
+				 }
+		
+			}
+		</script>
+
+		
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+        <script src="https://code.iconify.design/1/1.0.7/iconify.min.js"></script>
+
+    </body>
+
+<!-- Mirrored from technext.github.io/jober-desk/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:43 GMT -->
+</html>

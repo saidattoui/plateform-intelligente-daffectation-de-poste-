@@ -1,0 +1,139 @@
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Recruteur | SignUp</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="#">Your </a>  <a style="color:#636e7b;" href="#"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+			</div>   
+		</nav>
+		<!-- Navigation End  -->
+		
+		<!-- login section start -->
+		<section class="login-wrapper">
+			<div class="container">
+				<div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+					<form>
+                        <div class="col-md-12">
+                            <h3 class="text-center" style="color: rgb(65, 65, 75);">Créer un compte</h3> 
+                        </div> <br>
+                        <div class="form-group">
+                            <h5 style="text-align: left;">Nom & Prénom </h5>
+                            <input type="text" id="nom" name="text-input" placeholder="Entrez votre nom et prénom" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Adresse E-mail </h5>
+                            <input type="email" id ="email" name="email" placeholder="Entrez votre email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Mot de passe </h5>
+                            <input type="password" id="password" name="password" placeholder="Mot de passe" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Poste </h5>
+                            <input type="text" id ="poste" name="text-input" placeholder="Entrez votre poste" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Entreprise </h5>
+                            <input type="text" id ="entreprise" name="text-input" placeholder="Entrez le nom de votre entreprise" class="form-control">
+                        </div>
+						 <br>
+                         <button onclick="register();" type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20">Créer un compte</button>
+
+						<p style="text-align: center;">Vous avez déjà un compte ? 
+							<a href="login.html">Se connecter</a>
+						</p> <br>
+						
+					</form>
+				</div>
+			</div>
+		</section>
+		<!-- login section End -->	
+		
+
+		
+	
+        <script>
+            function register(){
+                var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+                if(document.getElementById("nom").value && document.getElementById("poste").value && document.getElementById("entreprise").value && document.getElementById("email").value && document.getElementById("password").value)
+                {
+                    if(document.getElementById("email").value.match(mailformat))
+                    {
+                    // Post a user
+                    var url = "http://127.0.0.1:3000/recruteurs";
+                    var data = {};
+                    // récupération des données dans la variable data .
+                    data.nom = document.getElementById("nom").value;
+                    data.poste = document.getElementById("poste").value;
+                    data.entreprise = document.getElementById("entreprise").value;
+                    data.email = document.getElementById("email").value;
+                    data.password = document.getElementById("password").value;
+                    data.status = 0;
+                    var json = JSON.stringify(data);
+                    var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+                    xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès au serveur pour avoir la possibilité d'envoyer les données au serveur .
+                    xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+                    xhr.onload = function () {
+                        var recruteurs = JSON.parse(xhr.responseText);
+                        if (xhr.readyState == 4 && xhr.status == "200") {
+                            console.table(recruteurs);
+                            alert("Recruteur Enregistré");
+                            localStorage.setItem("nom", recruteurs.nom);
+                            localStorage.setItem("id", recruteurs._id);
+                            localStorage.setItem("password", recruteurs.password);
+                            localStorage.setItem("status", recruteurs.status);
+                            location.replace("signup_ent.html");
+                        } else {
+                            alert(recruteurs.message);
+                            console.table(recruteurs);
+                        }
+                    }
+                    xhr.send(json);
+                }
+                else
+                {
+                alert("Adresse email incorrecte!");
+                }
+            }
+            else
+            {
+                alert("Veuillez remplir tous les champs!");
+            }
+            }
+        </script>
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+    </body>
+
+<!-- Mirrored from technext.github.io/jober-desk/login.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+</html>

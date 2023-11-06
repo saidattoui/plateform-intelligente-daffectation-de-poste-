@@ -1,0 +1,157 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+    <head>
+        <script src="https://static.filestackapi.com/filestack-js/3.x.x/filestack.min.js"></script><!--Activation API-->
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>User | SignUp</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+	
+		<!-- Navigation Start  -->
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="#">Your </a>  <a style="color:#636e7b;" href="#"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+			</div>   
+		</nav>
+		<!-- Navigation End  -->
+		
+		<!-- login section start -->
+		<section class="login-wrapper">
+			<div class="container">
+				<div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
+                    <p style="text-align: center;"> Etape2/4</p>
+					<form onsubmit="return false">
+                        <div class="col-md-12">
+                            <h3 class="text-center" style="color: rgb(65, 65, 75);">Informations Personnelles</h3> 
+                        </div> <br><br>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Photo de profil </h5>
+                             <input onclick="send()" type="button" value="Image" class="btn btn-primary">
+                             <input type="hidden" id="i">
+                         </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Genre </h5>
+                            <select id="sexe" class="form-control" name="">
+                                <option value="Homme">Homme</option>
+                                <option value="Femme" >Femme</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Etat Civil </h5>
+                            <select id="etatCivil" class="form-control" name="">
+                                <option value="Célibataire">Célibataire</option>
+                                <option value="Marié" >Marié(e)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Adresse </h5>
+                            <input type="text" id="adresse" name="text-input" placeholder="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Code Postal  </h5>
+                            <input type="number" id="codePostal" name="number" placeholder="" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <h5 style="text-align: left;"> Permis de conduire </h5>
+                            <select id="typePermis" class="form-control" name="">
+                                <option value="permis">J'ai pas un permis</option>
+                                <option value=" A1" >Permis A1</option>
+                                <option value="A">Permis A</option>
+                                <option value="B">Permis B</option>
+                                <option value="E">Permis B+E</option>
+                                <option value="C">Permis C</option>
+                                <option value="CE">Permis C+E</option>
+                                <option value="D">Permis D</option>
+                                <option value="D1">Permis D1</option>
+                                <option value="H">Permis H</option>
+                            </select>
+                        </div>
+
+						 <br>
+                         <button onclick="register();" type="button" class="btn btn-primary btn-md btn-block waves-effect text-center m-b-20"> Enregistrer et continuer</button>
+
+					</form>
+				</div>
+			</div>
+		</section>
+		<!-- login section End -->	
+		
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+        
+        <script>
+            function send() {
+                var i = document.getElementById("i");
+                const apikey = 'AZgUKKmLSScKHWwDZ725dz'; //new APIKey;
+                const client = filestack.init(apikey);
+                const options = {
+                    maxFiles: 20,
+                    uploadInBackground: false,
+                    onOpen: () => console.log('opened!'),
+                    onUploadDone: (res) => i.value = res.filesUploaded[0].url,
+                };
+                client.picker(options).open();
+            }
+            function register(){
+                if(document.getElementById("sexe").value && document.getElementById("etatCivil").value && document.getElementById("adresse").value && document.getElementById("codePostal").value && document.getElementById("typePermis").value)
+                {
+                    // Post a user
+                    var url = "http://127.0.0.1:3000/info_pers";
+                    var data = {};
+                    // récupération des données dans la variable data .
+                    data.photo = document.getElementById("i").value;
+                    data.id_user = localStorage.getItem("id");
+                    data.sexe = document.getElementById("sexe").value;
+                    data.etatCivil = document.getElementById("etatCivil").value;
+                    data.adresse = document.getElementById("adresse").value;
+                    data.codePostal = document.getElementById("codePostal").value;
+                    data.typePermis = document.getElementById("typePermis").value;
+                    
+                    var json = JSON.stringify(data);
+                    var xhr = new XMLHttpRequest(); // definir une request de connection standard js
+                    xhr.open("POST", url, true); // choisir la méthode post comme méthode d'accès au serveur pour avoir la possibilité d'envoyer les données au serveur .
+                    xhr.setRequestHeader('Content-type','application/json; charset=utf-8');
+                    xhr.onload = function () {
+                        var info_pers = JSON.parse(xhr.responseText);
+                        if (xhr.readyState == 4 && xhr.status == "200") {
+                            console.table(info_pers);
+                            alert("Informations Enregistrées");
+                            location.replace("signup_3.html");
+                        } else {
+                            alert(info_pers.message);
+                            console.table(info_pers);
+                        }
+                    }
+                    xhr.send(json);
+                }
+                else
+            {
+                alert("Veuillez remplir tous les champs!");
+            }
+                
+            }
+        </script>
+    </body>
+</html>

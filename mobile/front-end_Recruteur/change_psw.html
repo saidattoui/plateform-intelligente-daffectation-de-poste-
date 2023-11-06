@@ -1,0 +1,264 @@
+<script>
+    if (!localStorage.getItem("id")) 
+    {
+        location.replace("login.html")
+    }
+</script>
+  
+<!doctype html>
+<html class="no-js" lang="en">
+    
+<!-- Mirrored from technext.github.io/jober-desk/resume.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title> Recruteur | Changer mot de passe</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		
+        <!-- All Plugin Css --> 
+		<link rel="stylesheet" href="css/plugins.css">
+		
+		<!-- Style & Common Css --> 
+		<link rel="stylesheet" href="css/common.css">
+        <link rel="stylesheet" href="css/main.css">
+
+    </head>
+	
+    <body>
+
+		<!-- Navigation Start  -->
+
+		<nav class="navbar navbar-default navbar-sticky bootsnav">
+
+			<div class="container">      
+				<!-- Start Header Navigation -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
+						<i class="fa fa-bars"></i>
+					</button>
+					<h3 class="navbar-brand" style="font-size: 180%;"><a style="color:#da0833;" href="index.html">Your </a>  <a style="color:#636e7b;" href="index.html"> Career</a></h3>
+				</div>
+				<!-- End Header Navigation -->
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="navbar-menu">
+					<ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
+							<li><a href="index.html">Accueil</a></li> 
+							<li><a href="profil.html">Profil</a></li>
+              <li><a href="offres.html">Offres</a></li>
+
+							<li class="dropdown">
+								<a href="#" class="dropdown-toggle" data-toggle="dropdown">Paramétres</a>
+								<ul class="dropdown-menu animated fadeOutUp" style="display: none; opacity: 1;">
+									<li class="active"><a href="change_psw.html"> Changer mot de passe </a></li>
+								</ul>
+							</li>
+							<li>
+								<a href="#" class="nav-link" onclick="logout();">
+								  <p class="text"> Se déconnecter </p>
+								</a>
+							  </li>
+						</ul>
+				</div><!-- /.navbar-collapse -->
+			</div>   
+		</nav>
+		<!-- Navigation End  -->
+
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		
+
+
+	    <section class="content">
+			<div class="container-fluid">
+			  <div class="row">
+				  <div class="col-md-2"></div>
+				  <div class="col-md-5">
+					<div class="card card-primary">
+
+									<div class="card">
+										<div class="card-header">
+                                            <h3 class="text-center" style="color: rgb(65, 65, 75);">Changer <small>Mot de passe</small></h3>
+											<!--<span>Add class of <code>.form-control</code> with <code>&lt;input&gt;</code> tag</span>-->
+										</div> <br>
+										<div class="card-block">
+											<form class="form-material">
+												<div class="form-group form-default">
+													<label style="color: rgb(63, 4, 27);" >Mot de passe Actuel: </label>
+                          <input id="password" type="password" class="form-control" placeholder="Entrez mot de passe...">
+												</div>
+                          <a id="ress"></a>
+
+											   <div class="form-group form-default">
+													<label style="color: rgb(63, 4, 27);">Nouveau mot de passe : </label>
+                          <input id="newpassword" type="password" class="form-control" placeholder="Entrez mot de passe...">
+                          <input type="hidden" id="nom">
+                          <input type="hidden" id="email">
+											  </div>
+												<div class="form-group form-default">
+													<label style="color: rgb(63, 4, 27);">Confirmer nouveau mot de passe : </label>
+                          <input type="password" class="form-control"  onkeyup="verify()"  id="confnewpassword" placeholder="Confirmer mot de passe">
+											   </div>
+                          <a id="ress1"></a> 
+                                               
+                          <div class="card-footer">
+                          <button type="button" onclick="update();" class="btn btn-primary"> Enregistrer</button>
+                                        
+                          <button type="reset" class="btn btn-primary " style="background-color: #414953;">  Annuler </button>
+                          </div>
+										  </form>
+										</div>
+									</div>
+								</div>
+		  </section>
+
+
+          
+        <script>
+
+            var c = localStorage.getItem("id");
+            var url3 = "http://127.0.0.1:3000/recruteurs/" + c ; 
+            var xhr3 = new XMLHttpRequest(); 
+            xhr3.open("GET", url3, true); 
+            xhr3.onload = function () { 
+            var recruteurs = JSON.parse(xhr3.responseText); 
+            if (xhr3.readyState == 4 && xhr3.status == "200") { 
+            
+            document.getElementById("nom").value = recruteurs.nom; 
+            document.getElementById("email").value = recruteurs.email; 
+        } else { 
+            console.log("error"); 
+        } 
+            } 
+            xhr3.send(null); 
+              
+        </script>
+    <script>
+        function update(){ 
+            var w = localStorage.getItem("password");
+            var c = localStorage.getItem("id");
+
+            var url = "http://127.0.0.1:3000/recruteurs/"+c; 
+
+            console.log(c);
+            if(w == document.getElementById("password").value)
+            {
+                console.log(w);
+                var data = {}; 
+                data.nom = document.getElementById("nom").value; 
+                data.email = document.getElementById("email").value; 
+                data.password = document.getElementById("newpassword").value; 
+                
+                localStorage.setItem("password", data.password);
+
+                var json = JSON.stringify(data); 
+                var xhr = new XMLHttpRequest(); 
+                xhr.open("PUT", url, true); 
+                xhr.setRequestHeader('Content-type','application/json; charset=utf-8'); 
+                xhr.onload = function () { 
+                var recruteurs = JSON.parse(xhr.responseText); 
+                if (xhr.readyState == 4 && xhr.status == "200") { 
+                alert("Mot de passe changé!"); 
+                location.replace("change_psw.html"); 
+                } else { 
+                console.error(recruteurs); 
+                location.replace("change_psw.html"); 
+                } 
+                } 
+                xhr.send(json); 
+            }
+            else{
+                document.getElementById("ress").innerHTML = "Mot de passe incorrecte";
+            }
+        } 
+    </script>
+    <script>
+      function update(){ 
+        document.getElementById('ress').innerHTML = '';
+          var w = localStorage.getItem("password");
+          var c = localStorage.getItem("id");
+
+          var url = "http://127.0.0.1:3000/recruteurs/"+c; 
+
+          newp = document.getElementById("newpassword").value; 
+          conf = document.getElementById("confnewpassword").value; 
+  
+          if(w == document.getElementById("password").value)
+          {
+            if(conf == newp)
+            {
+              var data = {}; 
+              data.nom = document.getElementById("nom").value; 
+              data.email = document.getElementById("email").value; 
+              data.password = document.getElementById("newpassword").value; 
+              
+              localStorage.setItem("password", data.password);
+
+              var json = JSON.stringify(data); 
+              var xhr = new XMLHttpRequest(); 
+              xhr.open("PUT", url, true); 
+              xhr.setRequestHeader('Content-type','application/json; charset=utf-8'); 
+              xhr.onload = function () { 
+              var recruteurs = JSON.parse(xhr.responseText); 
+              if (xhr.readyState == 4 && xhr.status == "200") { 
+              alert("Mot de passe changé!"); 
+              location.replace("change_psw.html"); 
+              } else { 
+              console.error(recruteurs); 
+              location.replace("change_psw.html"); 
+              } 
+              } 
+              xhr.send(json); 
+            }
+          }
+          else
+          {
+            document.getElementById("ress").innerHTML = "Mot de passe incorrecte";
+            document.getElementById("ress").style.color = "red";
+          }
+      } 
+  </script>
+
+    <script>
+    function verify()
+    {
+    newp = document.getElementById("newpassword").value; 
+    conf = document.getElementById("confnewpassword").value; 
+    if(conf == newp)
+    {
+        document.getElementById("ress1").innerHTML = "Passwords match";
+        document.getElementById("ress1").style.color = "green";
+    } 
+    else
+    {
+        document.getElementById("ress1").innerHTML = "Passwords did not match";
+        document.getElementById("ress1").style.color = "red";
+    } 
+    }
+    </script>
+
+
+    <script>
+      function logout()
+      {
+        var c = window.confirm("Voulez-vous vraiment vous déconnecter ?")
+        if(c== true)
+        {
+          localStorage.clear();
+          location.replace("login.html");
+        }
+
+      }
+    </script>
+              
+
+		<script type="text/javascript" src="js/jquery.min.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/owl.carousel.min.js"></script>
+		<script src="js/bootsnav.js"></script>
+		<script src="js/main.js"></script>
+    </body>
+
+<!-- Mirrored from technext.github.io/jober-desk/resume.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 05 May 2021 16:14:49 GMT -->
+</html>
